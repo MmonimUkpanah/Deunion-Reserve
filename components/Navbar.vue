@@ -27,7 +27,6 @@
 <style scoped>
     .nav1{
         margin-top: 1rem;
-        margin-bottom: 1rem;
     }
     .nav-item{
         margin-left: 3rem;
