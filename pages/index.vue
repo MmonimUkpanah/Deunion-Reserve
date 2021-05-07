@@ -1,6 +1,56 @@
 <template>
   <div>
-    <navbar/>
+    <nav class="navbar navbar-expand-lg navbar-light small">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Deunion Reserve</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/do">What we do</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/we">Who we are</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Client Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Client Registration</a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    <div class="nav1 big">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Deunion Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/do">What we do</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/we">Who we Are</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/contact">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Client Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Client Registration</a>
+                </li>
+            </ul>
+        </div>
    <div class="one">
      <VueSlickCarousel v-bind="settings">
       <div class="two1">
@@ -304,6 +354,9 @@ export default {
         ),url(/img/new/bank2.jpe) center center/cover;
     height: 70vh;
     }
+    .small{
+      display: none;
+    }
     .two3{
       background: linear-gradient(
             to right,
@@ -456,6 +509,15 @@ export default {
     a{
         color: black;
     }
+    .nav1{
+        margin-top: 1rem;
+    }
+    .nav-item{
+        margin-left: 3rem;
+    }
+    .nav-link{
+      color: black  !important;
+    }
     
 
 
@@ -464,6 +526,9 @@ export default {
 
 
     @media(max-width:567px){
+      .active{
+        border-bottom: none  !important ;
+    }
       .two12{
       margin-left: 10px;
       margin-right: 10px;
@@ -502,6 +567,19 @@ export default {
       grid-gap: 10px;
       grid-template-columns: 1fr 1fr 1fr;
     }
+    .small{
+      display:block
+    }
+    .big{
+      display:none;
+    }
+    .nav1{
+        margin-top: 1rem;
+    }
+    .nav-item{
+        margin-left: 0rem;
+    }
+    
     }
     
   
