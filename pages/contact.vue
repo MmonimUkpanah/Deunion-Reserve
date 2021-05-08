@@ -1,6 +1,35 @@
 <template>
     <div>
-        <div class="nav1">
+        <nav class="navbar navbar-expand-lg navbar-light small">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Deunion Reserve</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/do">What we do</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/we">Who we are</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Client Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signup">Client Registration</a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+        <div class="nav1 big">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link "  href="/">Deunion Reserve</a>
@@ -15,10 +44,10 @@
                     <a class="nav-link active" aria-current="page" href="/contact">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Client Login</a>
+                    <a class="nav-link" href="/login">Client Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Client Registration</a>
+                    <a class="nav-link" href="/signup">Client Registration</a>
                 </li>
             </ul>
         </div>
@@ -41,7 +70,7 @@
         margin-right: 5%;
     }
     .con h1{
-        color: blue;
+        color: #0272A2;
         margin-bottom: 2rem;
     }
     .con p{
@@ -64,11 +93,35 @@
     a{
         color: black;
     }
+    .small{
+      display: none;
+    }
 
     @media(max-width:567px){
         .con{
         margin-left: 10px;
         margin-right: 10px;
     }
+    .small{
+      display:block
+    }
+    .big{
+      display:none;
+    }
+    .active{
+        border-bottom: none  !important ;
+    }
+    .nav-item{
+        margin-left: 0rem;
+        font-size: 17px;
+    }
+    .nav-link{
+      color: black  !important;
+    }
+    .navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
+    outline: none;
+}
     }
 </style>

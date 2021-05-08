@@ -18,10 +18,10 @@
                 <a class="nav-link" href="/contact">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Client Login</a>
+                <a class="nav-link" href="/login">Client Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Client Registration</a>
+                <a class="nav-link" href="/signup">Client Registration</a>
               </li>
               
             </ul>
@@ -44,10 +44,10 @@
                     <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Client Login</a>
+                    <a class="nav-link" href="/login">Client Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Client Registration</a>
+                    <a class="nav-link" href="/signup">Client Registration</a>
                 </li>
             </ul>
         </div>
@@ -466,7 +466,7 @@ export default {
       font-size: 20px;
     }
     .five2{
-      background: blue;
+      background: #0272A2;
       color: white;
       padding: 3rem 2rem;
     }
@@ -495,7 +495,7 @@ export default {
     }
     .five33 h3{
       font-size: 55px;
-      color: blue;
+      color: #0272A2;
     }
     .five32 p{
       color: darkgreen;
@@ -579,6 +579,11 @@ export default {
     .nav-item{
         margin-left: 0rem;
     }
+    .navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
+    outline: none;
+}
     
     }
     
