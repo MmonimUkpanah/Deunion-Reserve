@@ -155,6 +155,45 @@
                             </ValidationProvider>
                         </div>
                         <div class="form-group">
+                            <label >NEXT OF KIN</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="name"
+                                rules="required">
+                            <input type="text" class="form-control" name="name" 
+                            v-model="signup.name" required>
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                        </div>
+                        <div class="form-group">
+                            <label >RELATIONSHIP WITH NEXT OF KIN</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="name"
+                                rules="required">
+                            <input type="text" class="form-control" name="name" 
+                            v-model="signup.name" required>
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                        </div>
+                        <div class="form-group">
+                            <label >NEXT OF KIN'S PHONE NUMBER</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="name"
+                                rules="required">
+                            <input type="text" class="form-control" name="name" 
+                            v-model="signup.name" required>
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                        </div>
+                        <div class="form-group">
                             <label>PASSWORD</label>
                             <ValidationProvider rules="min:8|required" v-slot="{ errors }" vid="signup.password" name="password">
                             <input type="password" class="form-control" @keydown.space.prevent v-model="signup.password">
@@ -248,6 +287,7 @@ export default {
     .grid{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
     }
     form h2{
         color: #0272A2;
@@ -264,7 +304,7 @@ export default {
         border-radius: 8px;
         padding: 8px 8px;
         margin-bottom: 1rem;
-        width: 90%;
+        width: 100%;
     }
     form label{
         color: #0272A2;
@@ -284,7 +324,7 @@ export default {
             rgba(0, 4, 23, 0.58),
             rgba(0, 4, 23, 0.58)
         ),url(/img/new/ch.jpg) center center/cover;
-        height: 92.9vh;
+        height: 150vh;
         margin-top: -1px;
         
     }
@@ -314,7 +354,7 @@ export default {
     @media(max-width: 576px){
         form h2{
         color: white;
-        font-size: 37px;
+        font-size: 35px;
         font-weight: bold;
         margin-bottom: 2rem;
     }
