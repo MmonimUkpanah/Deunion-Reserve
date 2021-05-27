@@ -63,13 +63,13 @@
                         <div class="login-2">
                             <h2>LOGIN</h2>
                         <div class="form-group">
-                            <label for="inputAddress2">EMAIL</label>
+                            <label for="inputAddress2">Username</label>
                             <ValidationProvider
                                 v-slot="{ errors }"
-                                name="email"
-                                rules="required|email">
-                            <input type="email" class="form-control" name="email"   @keydown.space.prevent
-                            placeholder="johndoe@gmail.com" v-model="login.email">
+                                name="userna"
+                                rules="required">
+                            <input type="text" class="form-control" name="user"   @keydown.space.prevent
+                            placeholder="johndoe" v-model="login.username">
                             <span class="input-invalid-message">
                                 {{ errors[0] }}
                             </span>
@@ -112,7 +112,7 @@ export default {
     data(){
         return{
             login: {
-        email: '',
+        username: '',
         password: ''
       }
             
@@ -141,7 +141,7 @@ export default {
               type: "success",
             });
         
-             this.$router.push('/signals');           
+            //  this.$router.push('/signals');           
         console.log(response)
       } catch (err) {
            this.$message({

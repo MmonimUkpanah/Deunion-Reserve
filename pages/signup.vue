@@ -64,70 +64,22 @@
                             <h2>REGISTRATION</h2>
                         <div class="grid">
                             <div class="form-group">
-                            <label >FIRST NAME</label>
+                            <label >USERNAME</label>
                             <ValidationProvider
                                 v-slot="{ errors }"
                                 name="name"
                                 rules="required">
                             <input type="text" class="form-control" name="name" 
-                            v-model="signup.name" required>
+                            v-model="signup.username" required>
                             <span class="input-invalid-message">
                                 {{ errors[0] }}
                             </span>
                             </ValidationProvider>
                         </div>
-                        <div class="form-group">
-                            <label >MIDDLE NAME</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >SURNAME</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >DATE OF BIRTH</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="date" class="form-control" name="name" 
-                            v-model="signup.name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >PHONE NUMBER</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
+                        
+                        
+                        
+                        
                         <div class="form-group">
                             <label>EMAIL</label>
                             <ValidationProvider
@@ -141,58 +93,10 @@
                             </span>
                             </ValidationProvider>
                         </div>
-                        <div class="form-group">
-                            <label >UPLOAD ID</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="file" class="form-control" name="name" 
-                             required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >NEXT OF KIN</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >RELATIONSHIP WITH NEXT OF KIN</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >NEXT OF KIN'S PHONE NUMBER</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
+                        
+                        
+                        
+                        
                         <div class="form-group">
                             <label>PASSWORD</label>
                             <ValidationProvider rules="min:8|required" v-slot="{ errors }" vid="signup.password" name="password">
@@ -203,7 +107,7 @@
                         <div class="form-group">
                             <label> CONFIRM PASSWORD</label>
                             <ValidationProvider rules="confirmed:signup.password|min:8|required" name="Confirm Password" v-slot="{ errors }">
-                            <input type="password" class="form-control" @keydown.space.prevent v-model="signup.password_confirmation">
+                            <input type="password" class="form-control" @keydown.space.prevent v-model="signup.password2">
                             <span>{{ errors[0] }}</span>
                             </ValidationProvider>
                         </div>
@@ -242,10 +146,10 @@ export default {
     data(){
         return{
             signup: {
-                name:'',
+                username:'',
                 email: '',
                 password: '',
-                password_confirmation: ''
+                password2: ''
             }
             
         }
@@ -253,7 +157,30 @@ export default {
     mounted(){
     
     },
-    
+    methods: {
+    async signUp() {
+      try {
+        let response = await this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/register/",this.signup);
+        let user = response.data.user;
+            this.$auth.$storage.setLocalStorage("user", user);
+            let token = response.data.token;
+            this.$auth.$storage.setLocalStorage("jwt", token);
+        this.$auth.loginWith('local', { data: this.signup })
+        console.log(response)
+        this.$message({
+            message: "Account created successfully!",
+            type: "success",
+            });
+            // this.$router.push("/subscriptions");
+      } catch (err) {
+        console.log(err)
+        this.$message({
+            message: "There was a problem creating your account. Please try again.",
+            type: "warning",
+            });
+      }
+    }
+  }
     
 }
 
@@ -284,11 +211,7 @@ export default {
         padding:2rem 4rem ;
         
     }
-    .grid{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 1rem;
-    }
+    
     form h2{
         color: #0272A2;
         font-size: 40px;
@@ -317,6 +240,7 @@ export default {
         border-radius: 8px;
         color: white !important;
         background-color: #0272A2;
+        margin-top: 1rem;
     }
     .login-3{
         background: linear-gradient(
@@ -324,7 +248,7 @@ export default {
             rgba(0, 4, 23, 0.58),
             rgba(0, 4, 23, 0.58)
         ),url(/img/new/ch.jpg) center center/cover;
-        height: 150vh;
+        height: 91.3vh;
         margin-top: -1px;
         
     }

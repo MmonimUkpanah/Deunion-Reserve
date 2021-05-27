@@ -89,8 +89,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
-    '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    '@nuxtjs/axios',
     [
       'nuxt-fontawesome', {
         imports: [
@@ -125,7 +125,7 @@ export default {
   
  
   axios: {
-    baseURL: "https://api.fxhup.com",
+    baseURL: "https://deunionreserve.herokuapp.com/accounts",
   
     // requestInterceptor: (config, { store }) => {
     //    config.headers.common['Authorization'] = `Bearer ${store.getters['localStorage.getItem(this.$token)']}`;
@@ -151,7 +151,7 @@ export default {
         },
         
         endpoints: {
-          login: { url: '/auth/login', method: 'post', propertyName: "token" },
+          login: { url: '/api/login', method: 'post', },
           logout: { url: '/auth/logout', method: 'post' },
           user: { url: "/auth/user", method: "get", propertyName: "user" },
         },
