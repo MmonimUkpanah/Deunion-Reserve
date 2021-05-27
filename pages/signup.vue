@@ -165,13 +165,13 @@ export default {
             this.$auth.$storage.setLocalStorage("user", user);
             let token = response.data.token;
             this.$auth.$storage.setLocalStorage("jwt", token);
-        this.$auth.loginWith('local', { data: this.signup })
+        
         console.log(response)
         this.$message({
             message: "Account created successfully!",
             type: "success",
             });
-            // this.$router.push("/subscriptions");
+            this.$router.push("/login");
       } catch (err) {
         console.log(err)
         this.$message({

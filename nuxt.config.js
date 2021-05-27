@@ -151,7 +151,7 @@ export default {
         },
         
         endpoints: {
-          login: { url: '/api/login', method: 'post', },
+          login: { url: '/api/login/', method: 'post', },
           logout: { url: '/auth/logout', method: 'post' },
           user: { url: "/auth/user", method: "get", propertyName: "user" },
         },

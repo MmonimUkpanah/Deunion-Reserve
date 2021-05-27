@@ -63,7 +63,7 @@
                         <div class="login-2">
                             <h2>LOGIN</h2>
                         <div class="form-group">
-                            <label for="inputAddress2">Username</label>
+                            <label for="inputAddress2">USERNAME</label>
                             <ValidationProvider
                                 v-slot="{ errors }"
                                 name="userna"
@@ -124,15 +124,17 @@ export default {
     methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
-            let user = response.data.data.user;
+           let response = await this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/login/",this.login);
+        // let response = await this.$auth.loginWith('local', { data: this.login })
+            let user = response.data.user;
             this.$auth.$storage.setLocalStorage("user", user);
-            let token = response.data.data.token;
+            let token = response.data.token;
             this.$auth.$storage.setLocalStorage("jwt", token);
             
-            // localStorage.setItem("jwt", token);
+            localStorage.setItem("jwt", token);
             
             console.log(user)
+            console.log(token)
             console.log(response);
            
         
@@ -141,7 +143,7 @@ export default {
               type: "success",
             });
         
-            //  this.$router.push('/signals');           
+             this.$router.push('/userdashboard');           
         console.log(response)
       } catch (err) {
            this.$message({
