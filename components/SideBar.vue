@@ -10,9 +10,16 @@
         </div>
         
          <div class="grid1">
-            <router-link to="/userdashboard" class="dropdown-item rout link" >
+            <router-link to="/userdashboard" class="dropdown-item rout link" style="margin-top:1rem" >
             
             <span class="two"> User Dashboard</span></router-link>
+        </div>
+        <div class="grid1 dropdown-item rout link" style="margin-left:1rem;margin-top:-2rem "  >
+            <form action="">
+                <span class="two"  @click="logOut"> Log Out</span>
+            </form>
+            
+            
         </div>
         
          <!-- <div class="grid1">
@@ -75,12 +82,15 @@
 export default {
    
     methods:{
-        async logOut() {
-            await this.$auth.logout();
-            this.$message({
+        logOut()
+        {
+         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/logout/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.$message({
                 message: "You Logged out successfully!",
                 type: "success",
             });this.$router.push("/login");
+               
+         }) 
         },
     },
 };
@@ -135,6 +145,7 @@ export default {
     color:#334D6E
     
 }
+
 .one1 img{
     margin-bottom: 30px;
     padding-top: 20px;

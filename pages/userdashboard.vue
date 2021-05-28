@@ -17,6 +17,7 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Withdrawal
 </button>
+<button type="button" class="btn btn-primary" @click="logOut">logout</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,6 +118,16 @@ export default {
          this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/updateuser/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.update=response.data;
                console.log(this.account) 
+               
+         }) 
+        },
+        logOut()
+        {
+         this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/logout/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.$message({
+                message: "You Logged out successfully!",
+                type: "success",
+            });this.$router.push("/login");
                
          }) 
         },

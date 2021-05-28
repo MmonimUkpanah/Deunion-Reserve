@@ -152,8 +152,8 @@ export default {
         
         endpoints: {
           login: { url: '/api/login/', method: 'post', },
-          logout: { url: '/auth/logout', method: 'post' },
-          user: { url: "/auth/user", method: "get", propertyName: "user" },
+          logout: { url: '/api/logout/', method: 'post' },
+          user: { url: "/api/user", method: "get", propertyName: "user" },
         },
         tokenType: "Bearer"
       }
