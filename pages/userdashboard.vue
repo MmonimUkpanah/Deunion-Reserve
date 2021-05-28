@@ -27,10 +27,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Please contact your account officer for authorization code to proceed with withdrawal
+        Input authorization code or contact your account officer to proceed with withdrawal.
+        <input type="text" class="form-control in" placeholder="Withdrawal code">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Proceed</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Proceed</button>
         
       </div>
     </div>
@@ -38,12 +40,12 @@
 </div>
                     </div>
                 </div>
-                <div class="car">
+                <div class="car" v-for="(ac,index) in account" :key="index">
                     <h1>Account Information</h1>
-                    <p>Account Name:</p>
-                    <p>Account Number:</p>
-                    <p>Available Balance:</p>
-                    <p>Account Status:</p>
+                
+                    <p>Account Number: {{ac.account_number}}</p>
+                    <p>Available Balance: {{ac.available_bal}}</p>
+                
 
                 </div>
 
@@ -82,7 +84,10 @@ export default {
         return {
             user:{},
             account:{},
-            username:''
+            username:'',
+            update:{
+
+            }
             
         };
     },
@@ -106,13 +111,22 @@ export default {
                console.log(this.account) 
                
          }) 
-        }
+        },
+        getupdate()
+        {
+         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/updateuser/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.update=response.data;
+               console.log(this.account) 
+               
+         }) 
+        },
         
     },
     mounted() {
         
         this.getuser();
-        this.getaccount()
+        this.getaccount();
+        this.getupdate();
         
     },
 };
@@ -125,6 +139,11 @@ export default {
     *{
         font-family: 'DM Sans', sans-serif  !important;
         box-sizing: border-box;
+    }
+    .in{
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
     }
     .link:hover{
         text-decoration: none;
