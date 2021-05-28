@@ -1,35 +1,7 @@
 <template>
     <div>
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light small">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">Deunion Reserve</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/do">What we do</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/we">Who we are</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="/login">Client Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/signup">Client Registration</a>
-              </li> -->
-              
-            </ul>
             
-          </div>
-        </div>
-      </nav>
             <side-bar/>
         </div>
         
@@ -38,10 +10,32 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         
-                        <h1>Welcome <span style="text-transform:capitalize"></span>.</h1>
+                        <h1>Welcome <span style="text-transform:capitalize">{{this.username}}</span>.</h1>
                     </div>
                     <div class="col-lg-6 col-md-6 sign3">
-                        <button class="sign4">Fund Account</button><button>Invest Now</button>
+                        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Withdrawal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">WITHDRAWAL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Please contact your account officer for authorization code to proceed with withdrawal
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Proceed</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
                     </div>
                 </div>
                 <div class="car">
@@ -86,87 +80,40 @@ export default {
     },
     data() {
         return {
-            signals:[],
             user:{},
-            plan: '',
-            signal: '',
-            silversignals: {},
-            goldsignals: {},
-            displayGold: false,
-            displaySilver: false,
-            displayFree: true,
+            account:{},
+            username:''
+            
         };
     },
     computed: {
         
     },
     methods: {
-        getSignals() {
-            this.$axios
-                .get("https://api.fxhup.com/project/signals")
-                .then((res) => {
-                    console.log(res.data.data);
-                    this.signals = res.data.data.signals;
-                    console.log(this.signals);
-                    
-
-                
-                });
+        getuser()
+        {
+         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.user=response.data;
+               this.username = response.data.username
+               console.log(this.user) 
+               
+         }) 
         },
-        getSilver() {
-            this.$axios
-                .get("https://api.fxhup.com/project/silver")
-                .then((res) => {
-                    console.log(res.data.data);
-                    this.silversignals = res.data.data.silver;
-                    console.log(this.silversignals);
-                    
-
-                
-                });
-        },
-        getGold() {
-            this.$axios
-                .get("https://api.fxhup.com/project/gold")
-                .then((res) => {
-                    console.log(res.data.data);
-                    this.goldsignals = res.data.data.gold;
-                    console.log(this.goldsignals);
-                    
-
-                
-                });
-        },
-        getUser() {
-            this.$axios
-                .get("https://api.fxhup.com/auth/user")
-                .then((res) => {
-                    console.log(res.data);
-                    this.user = res.data.data;
-                    console.log(this.user);
-                    this.plan = res.data.data.user_plan.display_name;
-                    console.log(this.plan);
-                    if (this.plan == 'Silver'){
-                        this.displaySilver = true;
-                        this.displayFree = false;
-                    }else{this.displaySilver = false};
-                    if (this.plan == 'Gold'){
-                        this.displayGold = true;
-                        this.displayFree = false;
-                    }else {
-                        this.displayGold = false
-                    }
-                    
-                    
-                });
-        },
+        getaccount()
+        {
+         this.$axios.get("https://deunionreserve.herokuapp.com/customers/api/customersaccountlist/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.account=response.data;
+               console.log(this.account) 
+               
+         }) 
+        }
         
     },
     mounted() {
-        this.getSignals();
-        this.getUser();
-        this.getGold();
-        this.getSilver();
+        
+        this.getuser();
+        this.getaccount()
+        
     },
 };
 </script>
@@ -217,6 +164,7 @@ export default {
     .sign2{
         margin-left: 4rem;
         margin-right: 4rem;
+        padding-top: 2rem;
     }
     .sign2 h1{
         font-size: 40px;

@@ -5,14 +5,16 @@
         </div>
         <div class="one1">
             
-            
+            <h3>Deunion Reserve</h3>
        
         </div>
+        
          <div class="grid1">
             <router-link to="/userdashboard" class="dropdown-item rout link" >
-            <font-awesome-icon :icon="['fas', 'columns']" class="icons" />
+            
             <span class="two"> User Dashboard</span></router-link>
         </div>
+        
          <!-- <div class="grid1">
             <router-link to="/resources" class="dropdown-item rout link" >
             <img src="/img/logo/book.png" alt="" srcset="" class="icon">
@@ -127,10 +129,11 @@ export default {
 
 
 .one1{
-    margin-left: 10px;
+    margin-left: 25px;
     margin-right: 10px;
     text-align: left;
-    padding-top: 20px;
+    color:#334D6E
+    
 }
 .one1 img{
     margin-bottom: 30px;

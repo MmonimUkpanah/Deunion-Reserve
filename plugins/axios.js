@@ -7,6 +7,7 @@ export default function ({ store, app: { $axios }, redirect }) {
         config.headers.common['Authorization'] =`bearer ${token}`
 
         console.log(config)
+        console.log(token)
         
       }
   
