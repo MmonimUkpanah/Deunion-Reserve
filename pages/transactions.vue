@@ -8,6 +8,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item ic">
+               <h1>DE</h1> <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
+              </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/do">What we do</a>
               </li>
@@ -296,6 +299,35 @@
 
 
     @media(max-width:567px){
+      .ic{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr  ;
+     
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+    }
+    .ic h1{
+      color: black;
+      border-radius: 50%;
+      width:60%;
+      padding: 5px;
+      margin-right: 10px;
+      
+      border: 1px solid grey;
+      font-size: 25px;
+      display: inline;
+      font-weight: bold;
+      
+     
+    }
+    .icon{
+      font-size: 40px;
+      color: black;
+      border-radius: 50%;
+      padding : 5px;
+      margin-right: 10px;
+      border: 1px solid grey;
+    }
         .small{
       display:block
     }

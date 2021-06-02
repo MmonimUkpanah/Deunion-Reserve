@@ -17,7 +17,8 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Withdrawal
 </button>
-<button type="button" class="btn btn-primary" @click="logOut">logout</button>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -43,7 +44,7 @@
                 </div>
                 <div class="car" v-for="(ac,index) in account" :key="index">
                     <h1>Account Information</h1>
-                
+                    <p>Account Name: {{ac.account_name}}</p>
                     <p>Account Number: {{ac.account_number}}</p>
                     <p>Available Balance: {{ac.available_bal}}</p>
                 
@@ -88,14 +89,30 @@ export default {
             username:'',
             update:{
 
-            }
+            },
+            token:''
             
         };
     },
     computed: {
         
     },
+    mounted() {
+        
+        this.getuser();
+        this.getaccount();
+        this.getupdate();
+        this.token = localStorage.getItem('auth.jwt')
+        console.log(this.token)
+        
+    },
     methods: {
+       leave()
+        {
+        this.$router.push('/login');
+               
+         
+        },
         getuser()
         {
          this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
@@ -121,25 +138,10 @@ export default {
                
          }) 
         },
-        logOut()
-        {
-         this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/logout/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
-               this.$message({
-                message: "You Logged out successfully!",
-                type: "success",
-            });this.$router.push("/login");
-               
-         }) 
-        },
+        
         
     },
-    mounted() {
-        
-        this.getuser();
-        this.getaccount();
-        this.getupdate();
-        
-    },
+    
 };
 </script>
 <style scoped>

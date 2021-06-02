@@ -1,6 +1,6 @@
 <template>
     <div class="login-1">
-        <nav class="navbar navbar-expand-lg navbar-light small">
+       <nav class="navbar navbar-expand-lg navbar-light small">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Deunion Reserve</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,20 +8,26 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link "  href="/do">What we do</a>
+              <li class="nav-item ic">
+               <a href="/"><h1>DE</h1></a> <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link icons" href="/">Deunion Reserve </a><span class="grid1"><font-awesome-icon :icon="['fas', 'home']" class="" /></span>
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link active" aria-current="page" href="/do">What we do </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']" class="ico" /></span>
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link" href="/we">Who we are </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']"  /></span>
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link" href="/contact">Contact Us </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']"  /></span>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link icons" href="/login">Client Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/we">Who we are</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Client Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/signup">Client Registration</a>
+                <a class="nav-link icons" href="/signup">Client Registration</a>
               </li>
               
             </ul>
@@ -295,6 +301,7 @@
 import { ValidationObserver, ValidationProvider } from "vee-validate";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import { mapGetters } from 'vuex'
 export default {
     auth: false,
     components: {
@@ -325,12 +332,17 @@ export default {
             },
             users:{
 
+            },
+            use:{
+
             }
             
         }
     },
-    mounted(){
+    created(){
          
+        this.use = this.$store.state.auth.loggedIn;
+        console.log(this.use)
         this.getuser()
         
     },
@@ -340,6 +352,9 @@ export default {
       this.signup.valid_ID_frontview = input.files[0];
       console.log(this.signup.valid_ID_frontview);
     },
+    computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser'])
+  },
     uploadb() {
       var input = event.target;
       this.signup.valid_ID_backview = input.files[0];
@@ -387,13 +402,15 @@ export default {
         },
         getuser()
         {
+            this.$router.app.refresh()
          this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
-               this.users=response.data;
-               this.signup.user_id = this.users.id
+               this.user=response.data;
+               this.signup.user_id= response.data.id
                console.log(this.signup.user_id) 
                
          }) 
-        }
+        },
+        
 
     }
     
@@ -412,7 +429,21 @@ export default {
     *{
         font-family: 'DM Sans', sans-serif  !important;
         
+        
     }
+    .icons{
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .grid4{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid1{
+      text-align: right;
+      margin-top: 2px;
+    }
+
      .grid{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -500,6 +531,35 @@ export default {
 
 
     @media(max-width: 576px){
+        .ic{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr  ;
+     
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+    }
+    .ic h1{
+      color: black;
+      border-radius: 50%;
+      width:60%;
+      padding: 5px;
+      margin-right: 10px;
+      
+      border: 1px solid grey;
+      font-size: 25px;
+      display: inline;
+      font-weight: bold;
+      
+     
+    }
+    .icon{
+      font-size: 40px;
+      color: black;
+      border-radius: 50%;
+      padding : 5px;
+      margin-right: 10px;
+      border: 1px solid grey;
+    }
         .login-2{
         padding: 2rem 10px;
         

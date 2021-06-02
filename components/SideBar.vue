@@ -1,54 +1,29 @@
 <template>
     <div class="one">
-        <div>
-            
-        </div>
         <div class="one1">
             
-            <h3>Deunion Reserve</h3>
+            
        
         </div>
-        
+        <div class="grid1">
+            <router-link to="/" class="dropdown-item rout link" >
+            
+            <span class="two" style="font-weight:bold; font-size:25px">Deunion Reserve</span></router-link>
+        </div>
          <div class="grid1">
-            <router-link to="/userdashboard" class="dropdown-item rout link" style="margin-top:1rem" >
-            
-            <span class="two"> User Dashboard</span></router-link>
+            <router-link to="/userdashboard" class="dropdown-item rout link" >
+           
+            <span class="two"> Dashboard</span></router-link>
         </div>
-        <div class="grid1 dropdown-item rout link" style="margin-left:1rem;margin-top:-2rem "  >
-            <form action="">
-                <span class="two"  @click="logOut"> Log Out</span>
-            </form>
-            
-            
-        </div>
+         
         
-         <!-- <div class="grid1">
-            <router-link to="/resources" class="dropdown-item rout link" >
-            <img src="/img/logo/book.png" alt="" srcset="" class="icon">
-            <span class="two"> Resources</span></router-link>
-        </div>
-        <div class="grid1">
-            <nuxt-link to="brokers" class="dropdown-item link rout" >
-            <img src="/img/logo/case.png" alt="" srcset="" class="icon">
-            <span class="two">Management</span></nuxt-link>
-        </div>
-        <div class="grid1">
-            <router-link to="/transactions" class="dropdown-item rout link" >
-            <img src="/img/logo/card.png" alt="" srcset="" class="icon">
-            <span class="two"> Transactions</span></router-link>
-        </div>
-        <div class="grid1">
-            <router-link to="/settings" class="dropdown-item rout link" >
-            <img src="/img/logo/settings.png" alt="" srcset="" class="icon">
-            <span class="two"> Settings</span></router-link>
-        </div>
         <div class="grid1" @click="logOut">
             <div class="dropdown-item rout link">
-                <img src="/img/icon/logout.svg" alt="" srcset="" class="icon">
-            <span class="two"> Log Out</span>
+               
+            <span class="two" style="color:red"> Log Out</span>
             </div>
             
-        </div> -->
+        </div>
         <!-- <div class="grid1">
             <router-link to="/addstudent" class="dropdown-item link" >
             <font-awesome-icon class="icon" :icon="['fas', 'headset']" />
@@ -82,17 +57,31 @@
 export default {
    
     methods:{
-        logOut()
-        {
-         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/logout/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
-               this.$message({
-                message: "You Logged out successfully!",
-                type: "success",
-            });this.$router.push("/login");
-               
-         }) 
-        },
-    },
+       async logOut() {
+           
+      
+      try {
+           
+           
+        this.$router.push('/login');
+        this.$message({
+              message: "You've logged out",
+              type: "success",
+            });
+        
+                        
+        
+      } catch (err) {
+           this.$message({
+            message: "There was a problem logging out. Please try again.",
+            type: "warning",
+            });
+        console.log(err)
+      }
+    }
+  }
+    
+    
 };
 </script>
 
@@ -108,10 +97,9 @@ export default {
 
 }
 .icons{
-    font-size: 20px;
-    color: #334D6E;
+    font-size: 15px;
+    
     margin-left: 10px;
-
 }
 
 .one{
@@ -122,8 +110,8 @@ export default {
     left: 0;
     background: #FFFFFF;
     box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-    padding-top: 4rem;
-    z-index: -1;
+    padding-top: 0rem;
+    z-index: 1;
     
 
 }
@@ -139,13 +127,11 @@ export default {
 
 
 .one1{
-    margin-left: 25px;
+    margin-left: 10px;
     margin-right: 10px;
     text-align: left;
-    color:#334D6E
-    
+    padding-top: 20px;
 }
-
 .one1 img{
     margin-bottom: 30px;
     padding-top: 20px;
@@ -210,21 +196,6 @@ p.hover{
 @media (min-width: 577px) and (max-width: 768px){
     .one{
    display: none;
-    
-
-}
-}
-@media (min-width:769px) and (max-width: 1200px){
-    .one{
-    width: 25%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #FFFFFF;
-    box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-    padding-top: 5.15rem;
-    z-index: -1;
     
 
 }

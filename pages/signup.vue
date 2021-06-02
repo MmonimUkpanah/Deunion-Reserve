@@ -1,6 +1,6 @@
 <template>
     <div class="login-1">
-        <nav class="navbar navbar-expand-lg navbar-light small">
+       <nav class="navbar navbar-expand-lg navbar-light small">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Deunion Reserve</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,20 +8,26 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link "  href="/do">What we do</a>
+              <li class="nav-item ic">
+               <a href="/"><h1>DE</h1></a> <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link icons" href="/">Deunion Reserve </a><span class="grid1"><font-awesome-icon :icon="['fas', 'home']" class="" /></span>
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link active" aria-current="page" href="/do">What we do </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']" class="ico" /></span>
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link" href="/we">Who we are </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']"  /></span>
+              </li>
+              <li class="nav-item grid4">
+                <a class="nav-link" href="/contact">Contact Us </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']"  /></span>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link icons" href="/login">Client Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/we">Who we are</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Client Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/signup">Client Registration</a>
+                <a class="nav-link icons" href="/signup">Client Registration</a>
               </li>
               
             </ul>
@@ -180,6 +186,33 @@ export default {
             });
       }
     }
+    //  signUp()
+    //     {
+            
+    //          this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/register/",this.signup)
+    //         .then((res)=> {
+    //          console.log(res)
+    //           this.$message({
+    //          message: "Account created successfully!",
+    //         type: "success",
+    //        });
+    //        this.$auth.loginWith('local', { data: this.signup })
+           
+    //        this.$router.push("/profile");
+          
+    //         })
+    //         .catch((error)=> {
+    //         console.log(error)
+    //         this.$message({
+    //          message: "There was a problem creating your account. Please try again.",
+    //         type: "warning",
+    //         });
+            
+            
+    //         })
+            
+         
+    //     },
   }
     
 }
@@ -198,6 +231,19 @@ export default {
         font-family: 'DM Sans', sans-serif  !important;
         
     }
+    .icons{
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .grid4{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid1{
+      text-align: right;
+      margin-top: 2px;
+    }
+
     .login-1{
         background: white;
         
@@ -276,6 +322,35 @@ export default {
 
 
     @media(max-width: 576px){
+        .ic{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr  ;
+     
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+    }
+    .ic h1{
+      color: black;
+      border-radius: 50%;
+      width:60%;
+      padding: 5px;
+      margin-right: 10px;
+      
+      border: 1px solid grey;
+      font-size: 25px;
+      display: inline;
+      font-weight: bold;
+      
+     
+    }
+    .icon{
+      font-size: 40px;
+      color: black;
+      border-radius: 50%;
+      padding : 5px;
+      margin-right: 10px;
+      border: 1px solid grey;
+    }
         form h2{
         color: white;
         font-size: 35px;

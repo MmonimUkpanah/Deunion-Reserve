@@ -131,34 +131,72 @@ export default {
     //    config.headers.common['Authorization'] = `Bearer ${store.getters['localStorage.getItem(this.$token)']}`;
     // }
   },
-
-  
-  auth: {
+  auth: { 
     redirect: {
       login: "/login",
-      logout: "/login",
+      logout: "/logout",
+      
     },
-    strategies: {
-      local: {
-        token: {
-          property: 'token',
-          required: true,
-          type: 'Bearer'
-        },
-        user: {
-          property: 'user',
-          autoFetch: true
-        },
-        
-        endpoints: {
-          login: { url: '/api/login/', method: 'post', },
-          logout: { url: '/api/logout/', method: 'post' },
-          user: { url: "/api/user", method: "get", propertyName: "user" },
-        },
-        tokenType: "Bearer"
-      }
+    strategies: {  
+        local: {
+          scheme: 'refresh',
+          endpoints: {
+            login: { url: "/api/login/", method: "post", propertyName: "auth.jwt" }, 
+            logout: { url: "/api/logout/", method: "post", propertyName: "auth.jwt" },
+            user: { url: "/api/user/", method: "get", propertyName: "user" },    
+            refresh: { url: '/api/refresh', method: 'post' },
+          },
+          
+          token: {
+            property: 'token',
+            required: true,
+            type: 'token'
+          },
+          user: {
+            property: 'user',
+           autoFetch: true
+          },
+          refreshToken: {
+            property: 'refresh_token',
+            data: 'refresh_token',
+            maxAge:20160 * 60
+          } 
+         
+        }, 
     }
-  }
+  },
+  // router: {
+  //   middleware: ['auth']
+  // },
+
+
+  
+  // auth: {
+  //   redirect: {
+  //     login: "/login",
+  //     logout: "/login",
+  //   },
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         property: 'token',
+  //         required: true,
+  //         type: 'Bearer'
+  //       },
+  //       user: {
+  //         property: 'user',
+  //         autoFetch: true
+  //       },
+        
+  //       endpoints: {
+  //         login: { url: '/api/login/', method: 'post', },
+          
+  //         user: { url: "/api/user", method: "get", propertyName: "user" },
+  //       },
+  //       tokenType: "Bearer"
+  //     }
+  //   }
+  // }
 
 
   
