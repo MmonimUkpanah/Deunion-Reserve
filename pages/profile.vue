@@ -1,6 +1,6 @@
 <template>
     <div class="login-1">
-       <nav class="navbar navbar-expand-lg navbar-light small">
+       <nav class="navbar navbar-expand-lg navbar-light small fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Deunion Reserve</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -441,7 +441,7 @@ export default {
     }
     .grid1{
       text-align: right;
-      margin-top: 2px;
+      margin-top: 7px;
     }
 
      .grid{
@@ -523,6 +523,7 @@ export default {
     }
     .small{
       display: none;
+      
     }
     .nav1{
         margin-top: 1rem;
@@ -597,6 +598,7 @@ export default {
             rgba(0, 4, 23, 0.58)
         ),url(/img/new/ch.jpg) center center/cover;
         height: auto;
+        margin-top: 4rem;
     }
     .login{
         width: 100%;
@@ -619,7 +621,8 @@ export default {
         grid-template-columns: 1fr;
     }
     .small{
-      display:block
+      display:block;
+      background: white;
     }
     .big{
       display:none;

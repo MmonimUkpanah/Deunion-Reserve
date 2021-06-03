@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light small">
+    <nav class="navbar navbar-expand-lg navbar-light small fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Deunion Reserve</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@
                 </li>
             </ul>
         </div>
-   <div class="one">
+   <!-- <div class="one">
      <VueSlickCarousel v-bind="settings">
       <div class="two1">
         <div class="two12">
@@ -94,6 +94,55 @@
       </div>
       
     </VueSlickCarousel>
+   </div> -->
+   <div class="carousel">
+     <b-carousel
+    id="carousel-fade"
+    style="text-shadow: 0px 0px 2px #000"
+    fade
+    indicators
+    img-width="1024"
+    img-height="480"
+  >
+    
+    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+    <div class="cap">
+      <h1>Deutsche Bank reports on target delivery and progress on sustainability in 2020</h1>
+    </div>
+        
+       
+      </b-carousel-slide>
+      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+       <div class="cap">
+         <p>What's next - Responsible Growth</p>
+          <h1>Togs from Trash</h1>
+          <p>Italian company Aquafil produces Nylon from waste - and maskes the fashion industry more sustainable</p>
+       </div>
+      </b-carousel-slide>
+       <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+       <div class="cap">
+         
+          <h1>Germany in the next decade: Ambition and potential</h1>
+
+       </div>
+      </b-carousel-slide>
+      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+       <div class="cap">
+         
+          <h1>Deutshe Bank reports &#65505;1.6 billion profit before tax in the first quarter of 2021</h1>
+
+       </div>
+      </b-carousel-slide>
+      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+       <div class="cap">
+         
+          <h1>Asset-as-a-service</h1>
+          <p>The transformation from Capex to Opex - a step further towards Industry 4.0</p>
+
+       </div>
+      </b-carousel-slide>
+      
+  </b-carousel>
    </div>
    <div class="three">
      <div class="three1">
@@ -259,8 +308,7 @@ export default {
                       "cssEase": "linear",
                       "pauseOnDotsHover": true,
                       "pauseOnFocus": true,
-                      "pauseOnHover": true
-          },
+                      "pauseOnHover": true },
               set: {
                     "dots": true,
                     "focusOnSelect": true,
@@ -301,9 +349,11 @@ export default {
         "pauseOnFocus": true,
         "pauseOnHover": true
       }
-    }
+    },
   ]
-                  }      
+                  } ,
+                   slide: 0,
+        sliding: null,   
             
         }
     },
@@ -352,17 +402,29 @@ export default {
         ),url(/img/new/bank1.jpe) center center/cover;
     height: 70vh;
     }
+    .cap{
+      margin-top: -35rem;
+      text-align: left;
+      color: black;
+    }
+    .cap h1{
+      font-size: 70px;
+    }
+    .cap p{
+      font-size: 30px;
+    }
     .two2{
       background: linear-gradient(
             to right,
             rgba(0, 4, 23, 0.58),
             rgba(0, 4, 23, 0.58)
         ),url(/img/new/bank2.jpe) center center/cover;
-    height: 70vh;
+    
     }
     .small{
       display: none;
     }
+    
     .two3{
       background: linear-gradient(
             to right,
@@ -533,12 +595,23 @@ export default {
     }
     .grid1{
       text-align: right;
-      margin-top: 2px;
+      margin-top: 7px;
     }
 
 
 
     @media(max-width:567px){
+      .cap{
+      margin-top: 0rem;
+      text-align: left;
+      color: black;
+    }
+    .cap h1{
+      font-size: 20px;
+    }
+    .cap p{
+      font-size: 10px;
+    }
       .ic{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr  ;
@@ -615,7 +688,11 @@ export default {
       grid-template-columns: 1fr 1fr 1fr;
     }
     .small{
-      display:block
+      display:block;
+      background: white;
+    }
+    .carousel{
+      margin-top: 4rem;
     }
     .big{
       display:none;

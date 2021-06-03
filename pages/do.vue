@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light small">
+        <nav class="navbar navbar-expand-lg navbar-light small fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Deunion Reserve</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -130,7 +130,7 @@ We work together with like-minded partners towards this goal. Our people play th
     }
     .grid1{
       text-align: right;
-      margin-top: 2px;
+      margin-top: 7px;
     }
 
     .con p{
@@ -192,9 +192,11 @@ We work together with like-minded partners towards this goal. Our people play th
         .con{
         margin-left: 10px;
         margin-right: 10px;
+        margin-top: 4rem;
     }
         .small{
-      display:block
+      display:block;
+      background: white;
     }
     .big{
       display:none;
