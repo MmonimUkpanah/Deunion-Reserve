@@ -102,42 +102,42 @@
     fade
     indicators
     img-width="1024"
-    img-height="480"
+    img-height="50vh"
   >
     
-    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+    <b-carousel-slide class="two1">
     <div class="cap">
       <h1>Deutsche Bank reports on target delivery and progress on sustainability in 2020</h1>
     </div>
         
        
       </b-carousel-slide>
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+      <b-carousel-slide class="two2">
        <div class="cap">
-         <p>What's next - Responsible Growth</p>
-          <h1>Togs from Trash</h1>
-          <p>Italian company Aquafil produces Nylon from waste - and maskes the fashion industry more sustainable</p>
+          <h1>Asset-as-a-service</h1>
+          <p>The transformation from Capex to Opex - a step further towards Industry 4.0</p>
        </div>
       </b-carousel-slide>
-       <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+       <b-carousel-slide class="two3">
        <div class="cap">
          
           <h1>Germany in the next decade: Ambition and potential</h1>
 
        </div>
       </b-carousel-slide>
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+      <b-carousel-slide class="two4">
        <div class="cap">
          
           <h1>Deutshe Bank reports &#65505;1.6 billion profit before tax in the first quarter of 2021</h1>
 
        </div>
       </b-carousel-slide>
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+      <b-carousel-slide class="two5">
        <div class="cap">
+         <p>What's next - Responsible Growth</p>
+          <h1>Togs from Trash</h1>
+          <p>Italian company Aquafil produces Nylon from waste - and maskes the fashion industry more sustainable</p>
          
-          <h1>Asset-as-a-service</h1>
-          <p>The transformation from Capex to Opex - a step further towards Industry 4.0</p>
 
        </div>
       </b-carousel-slide>
@@ -394,6 +394,7 @@ export default {
     .two{
       width: 100%  !important;
     }
+    
     .two1{
       background: linear-gradient(
             to right,
@@ -403,9 +404,9 @@ export default {
     height: 70vh;
     }
     .cap{
-      margin-top: -35rem;
+      margin-top: -25rem;
       text-align: left;
-      color: black;
+      color: white;
     }
     .cap h1{
       font-size: 70px;
@@ -419,6 +420,7 @@ export default {
             rgba(0, 4, 23, 0.58),
             rgba(0, 4, 23, 0.58)
         ),url(/img/new/bank2.jpe) center center/cover;
+        height: 70vh;
     
     }
     .small{
@@ -602,15 +604,15 @@ export default {
 
     @media(max-width:567px){
       .cap{
-      margin-top: 0rem;
+      margin-top: -10rem;
       text-align: left;
-      color: black;
+      color: white;
     }
     .cap h1{
-      font-size: 20px;
+      font-size: 40px;
     }
     .cap p{
-      font-size: 10px;
+      font-size: 20px;
     }
       .ic{
       display: grid;
