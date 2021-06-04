@@ -641,7 +641,8 @@ export default {
 
     @media(max-width:567px){
       .cap{
-      margin-top: 10rem;
+         padding-top: 0rem;
+      margin-top: 7rem;
       text-align: center;
       color: white;
       padding-left: 10px;
