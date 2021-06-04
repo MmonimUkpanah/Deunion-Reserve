@@ -2,7 +2,8 @@
     <div class="login-1">
        <nav class="navbar navbar-expand-lg navbar-light small fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Deunion Reserve</a>
+          <a class="navbar-brand" href="/" > <svg id="svgsymbol-logo"  viewBox="0 0 32 32"><path d="M4.5 4.5v23h23v-23h-23zM0 0h32v32H0V0zm7 24.3L19.2 7.7H25L12.8 24.3H7z"></path></svg> Deunion Reserve </a>
+          
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -11,16 +12,16 @@
               <li class="nav-item ic">
                <a href="/"><h1>DE</h1></a> <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
               </li>
-              <li class="nav-item grid4">
+              <li class="nav-item grid">
                 <a class="nav-link icons" href="/">Deunion Reserve </a><span class="grid1"><font-awesome-icon :icon="['fas', 'home']" class="" /></span>
               </li>
-              <li class="nav-item grid4">
+              <li class="nav-item grid">
                 <a class="nav-link active" aria-current="page" href="/do">What we do </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']" class="ico" /></span>
               </li>
-              <li class="nav-item grid4">
+              <li class="nav-item grid">
                 <a class="nav-link" href="/we">Who we are </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']"  /></span>
               </li>
-              <li class="nav-item grid4">
+              <li class="nav-item grid">
                 <a class="nav-link" href="/contact">Contact Us </a><span class="grid1"><font-awesome-icon :icon="['fas', 'chevron-circle-right']"  /></span>
               </li>
               <li class="nav-item ">
@@ -278,6 +279,14 @@ export default {
     form label{
         color: #0272A2;
         font-weight: bold;
+    }
+    .navbar-brand{
+      color: #0272A2;
+    }
+    .navbar-brand svg{
+      background-color: #0272A2  !important;
+      width:1.7rem ;
+      margin-right: 0.3rem;
     }
     .login{
         width: 100%;

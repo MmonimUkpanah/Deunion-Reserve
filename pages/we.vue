@@ -1,8 +1,9 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light small">
+       <nav class="navbar navbar-expand-lg navbar-light small fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Deunion Reserve</a>
+          <a class="navbar-brand" href="/" > <svg id="svgsymbol-logo"  viewBox="0 0 32 32"><path d="M4.5 4.5v23h23v-23h-23zM0 0h32v32H0V0zm7 24.3L19.2 7.7H25L12.8 24.3H7z"></path></svg> Deunion Reserve </a>
+          
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -161,6 +162,14 @@
     }
     a{
         color: black;
+    }
+    .navbar-brand{
+      color: #0272A2;
+    }
+    .navbar-brand svg{
+      background-color: #0272A2  !important;
+      width:1.7rem ;
+      margin-right: 0.3rem;
     }
     .con2{
         background: url("/img/new/page.jpg") center center/cover;
