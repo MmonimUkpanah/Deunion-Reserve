@@ -285,7 +285,7 @@
        </div>
      </div>
    </div>
-   <div class="five">
+   <div class="five big">
      <div class="five1">
        <h4>Graduate? Professional?</h4>
        <p>The world is changing, and so are we. This is more than banking.</p>
