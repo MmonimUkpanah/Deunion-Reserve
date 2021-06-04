@@ -144,6 +144,25 @@
       
   </b-carousel>
    </div>
+   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active two1">
+      
+    </div>
+    <div class="carousel-item two2">
+      
+    </div>
+    <div class="carousel-item two3">
+      
+    </div>
+    <div class="carousel-item two4">
+      
+    </div>
+    <div class="carousel-item two5">
+      
+    </div>
+  </div>
+</div>
    <div class="three">
      <div class="three1">
        <img src="/img/new/stefan.jpg" alt="">
