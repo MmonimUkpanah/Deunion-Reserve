@@ -285,7 +285,7 @@
        </div>
      </div>
    </div>
-   <div class="five big">
+   <div class="five">
      <div class="five1">
        <h4>Graduate? Professional?</h4>
        <p>The world is changing, and so are we. This is more than banking.</p>
@@ -349,7 +349,7 @@ export default {
                     "focusOnSelect": true,
                     "infinite": true,
                     "speed": 500,
-                    "slidesToShow": 3,
+                    "slidesToShow": 1,
                     "slidesToScroll": 1,
                     "touchThreshold": 5,
                     "responsive": [
