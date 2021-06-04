@@ -95,7 +95,7 @@
       
     </VueSlickCarousel>
    </div> -->
-   <div class="carousel">
+   <!-- <div class="carousel big">
      <b-carousel
     id="carousel-fade"
     style="text-shadow: 0px 0px 2px #000"
@@ -143,23 +143,39 @@
       </b-carousel-slide>
       
   </b-carousel>
-   </div>
+   </div> -->
    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active two1">
-      
+      <div class="cap">
+      <h1>Deutsche Bank reports on target delivery and progress on sustainability in 2020</h1>
+    </div>
     </div>
     <div class="carousel-item two2">
-      
+      <div class="cap">
+          <h1>Asset-as-a-service</h1>
+          <p>The transformation from Capex to Opex - a step further towards Industry 4.0</p>
+       </div>
     </div>
     <div class="carousel-item two3">
-      
+      <div class="cap">
+        <h1>Germany in the next decade: Ambition and potential</h1>
+      </div>
+       
     </div>
     <div class="carousel-item two4">
-      
+      <div class="cap">
+         <h1>Deutshe Bank reports &#65505;1.6 billion profit before tax in the first quarter of 2021</h1>
+      </div>
+     
     </div>
     <div class="carousel-item two5">
-      
+      <div class="cap">
+        <p>What's next - Responsible Growth</p>
+          <h1>Togs from Trash</h1>
+          <p>Italian company Aquafil produces Nylon from waste - and maskes the fashion industry more sustainable</p>
+      </div>
+       
     </div>
   </div>
 </div>
@@ -423,7 +439,9 @@ export default {
     height: 70vh;
     }
     .cap{
-      margin-top: -25rem;
+      padding-top: 3rem;
+      padding-left: 5%;
+      padding-right: 5%;;
       text-align: left;
       color: white;
     }
@@ -623,9 +641,11 @@ export default {
 
     @media(max-width:567px){
       .cap{
-      margin-top: -10rem;
-      text-align: left;
+      margin-top: 10rem;
+      text-align: center;
       color: white;
+      padding-left: 10px;
+      padding-right: 10px;
     }
     .cap h1{
       font-size: 40px;
