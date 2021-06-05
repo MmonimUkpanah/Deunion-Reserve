@@ -16,7 +16,7 @@
                         <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Withdrawal
-</button>
+</button> <button class="log" @click="logOut()">Logout</button>
 
 
 
@@ -27,6 +27,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">WITHDRAWAL</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        
       </div>
       <div class="modal-body">
         Input authorization code or contact your account officer to proceed with withdrawal.
@@ -138,6 +139,28 @@ export default {
                
          }) 
         },
+        async logOut() {
+           
+      
+      try {
+           
+           
+        this.$router.push('/login');
+        this.$message({
+              message: "You've logged out",
+              type: "success",
+            });
+        
+                        
+        
+      } catch (err) {
+           this.$message({
+            message: "There was a problem logging out. Please try again.",
+            type: "warning",
+            });
+        console.log(err)
+      }
+    }
         
         
     },
@@ -213,6 +236,9 @@ export default {
         border: none;
         border-radius: 10px;
     }
+    .log{
+        display: none;
+    }
     .sign4{
         margin-right: 10px;
     }
@@ -257,6 +283,15 @@ export default {
     }
 
 @media(max-width:576px){
+    .log{
+        background-color: red  !important;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        display: inline-block;
+        border-radius: 10px;
+        margin-left: 0.5rem;
+    }
     .upgrade{
         background: #DE911D;
         padding: 2rem 1rem;
