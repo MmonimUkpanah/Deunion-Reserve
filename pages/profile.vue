@@ -69,65 +69,8 @@
                         <div class="login-2">
                             <h2>UPDATE PROFILE</h2>
                         <div class="grid">
-                        <div class="form-group">
-                            <label >FIRST NAME</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.first_name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >MIDDLE NAME</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.middle_name" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >SURNAME</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.surname" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label >SEX</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <div class="input-group">
-                                <select v-model="signup.sex" class="form-select form-control" id="inputGroupSelect04" aria-label="Example select with button addon">
-                                    <option  selected>Choose...</option>
-                                    <option value="M">Male</option>
-                                    <option value="F">Female</option>
-                                
-                                </select>
-                                
-                            </div>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
+                        
+                       
                         <div class="form-group">
                             <label >DATE OF BIRTH</label>
                             <ValidationProvider
@@ -141,32 +84,7 @@
                             </span>
                             </ValidationProvider>
                         </div>
-                        <div class="form-group">
-                            <label >PHONE</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="phone"
-                                rules="required">
-                            <input type="text" class="form-control" name="phone" 
-                            v-model="signup.phone" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        <div class="form-group">
-                            <label>EMAIL</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="email"
-                                rules="required|email">
-                            <input type="email" class="form-control" @keydown.space.prevent 
-                            v-model="signup.email" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
+                        
                         <div class="form-group">
                             <label >ACCOUNT TYPE</label>
                             <ValidationProvider
@@ -313,13 +231,9 @@ export default {
         return{
             signup: {
                 passport:'',
-                first_name: '',
-                middle_name: '',
-                surname: '',
-                sex: '',
+                
                 dob: '',
-                phone: '',
-                email: '',
+               
                 valid_ID_frontview: '',
                 valid_ID_backview: '',
                 account_type: '',
@@ -369,13 +283,9 @@ export default {
         updateProfile(){
             const formData = new FormData();
             formData.append("passport", this.signup.passport);
-            formData.append("first_name", this.signup.first_name);
-            formData.append("middle_name", this.signup.middle_name);
-            formData.append("surname", this.signup.surname);
-            formData.append("sex", this.signup.sex);
+            
             formData.append("dob", this.signup.dob);
-            formData.append("phone", this.signup.phone);
-            formData.append("email", this.signup.email);
+            
             formData.append("valid_ID_frontview", this.signup.valid_ID_frontview);
             formData.append("valid_ID_backview", this.signup.valid_ID_backview);
             formData.append("account_type", this.signup.account_type);
@@ -403,9 +313,10 @@ export default {
         },
         getuser()
         {
-            this.$router.app.refresh()
+    
          this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.user=response.data;
+               console.log(this.user)
                this.signup.user_id= response.data.id
                console.log(this.signup.user_id) 
                

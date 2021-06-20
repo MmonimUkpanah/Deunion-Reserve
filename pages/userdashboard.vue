@@ -45,7 +45,7 @@
                 </div>
                 <div class="car" v-for="(ac,index) in account" :key="index">
                     <h1>Account Information</h1>
-                    <p>Account Name: {{ac.account_name}}</p>
+                    <p>Account Name: {{user.surname}}, {{user.middle_name}} {{user.first_name}}</p>
                     <p>Account Number: {{ac.account_number}}</p>
                     <p>Available Balance: {{ac.available_bal}}</p>
                 
@@ -86,9 +86,15 @@ export default {
     data() {
         return {
             user:{},
-            account:{},
+            account:[],
             username:'',
+            person:{
+
+            },
             update:{
+
+            },
+            updateauth:{
 
             },
             token:''
@@ -102,7 +108,7 @@ export default {
         
         this.getuser();
         this.getaccount();
-        this.getupdate();
+        
         this.token = localStorage.getItem('auth.jwt')
         console.log(this.token)
         
@@ -118,7 +124,7 @@ export default {
         {
          this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.user=response.data;
-               this.username = response.data.username
+               this.username = response.data.first_name
                console.log(this.user) 
                
          }) 
@@ -127,18 +133,13 @@ export default {
         {
          this.$axios.get("https://deunionreserve.herokuapp.com/customers/api/customersaccountlist/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.account=response.data;
-               console.log(this.account) 
+               this.person = this.account[1]
+               console.log(this.person) 
                
          }) 
         },
-        getupdate()
-        {
-         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/updateuser/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
-               this.update=response.data;
-               console.log(this.account) 
-               
-         }) 
-        },
+        
+       
         async logOut() {
            
       

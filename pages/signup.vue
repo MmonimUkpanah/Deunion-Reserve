@@ -71,22 +71,44 @@
                             <h2>REGISTRATION</h2>
                         <div class="grid">
                             <div class="form-group">
-                            <label >USERNAME</label>
+                            <label >FIRST NAME</label>
                             <ValidationProvider
                                 v-slot="{ errors }"
-                                name="name"
+                                name="first_name"
                                 rules="required">
-                            <input type="text" class="form-control" name="name" 
-                            v-model="signup.username" required>
+                            <input type="text" class="form-control" name="first_name" 
+                            v-model="signup.first_name" required>
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                            </div>
+                        <div class="form-group">
+                            <label >MIDDLE NAME</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="middle_name"
+                                rules="required">
+                            <input type="text" class="form-control" name="middle_name" 
+                            v-model="signup.middle_name" required>
                             <span class="input-invalid-message">
                                 {{ errors[0] }}
                             </span>
                             </ValidationProvider>
                         </div>
-                        
-                        
-                        
-                        
+                        <div class="form-group">
+                            <label >SURNAME</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="surname"
+                                rules="required">
+                            <input type="text" class="form-control" name="surname" 
+                            v-model="signup.surname" required>
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                        </div>
                         <div class="form-group">
                             <label>EMAIL</label>
                             <ValidationProvider
@@ -100,22 +122,51 @@
                             </span>
                             </ValidationProvider>
                         </div>
-                        
-                        
-                        
-                        
+                        <div class="form-group">
+                            <label >PHONE NUMBER</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="phone"
+                                rules="required">
+                            <input type="text" class="form-control" name="phone" 
+                            v-model="signup.phone" required>
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                        </div>
+                         <div class="form-group">
+                            <label >SEX</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="name"
+                                rules="required">
+                            <div class="input-group">
+                                <select v-model="signup.sex" class="form-select form-control" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                    <option  selected>Choose...</option>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                
+                                </select>
+                                
+                            </div>
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                        </div>          
                         <div class="form-group">
                             <label>PASSWORD</label>
                             <ValidationProvider rules="min:8|required" v-slot="{ errors }" vid="signup.password" name="password">
                             <input type="password" class="form-control" @keydown.space.prevent v-model="signup.password">
-                            <span>{{ errors[0] }}</span>
+                            <span class="input-invalid-message">{{ errors[0] }}</span>
                             </ValidationProvider>
                         </div>
                         <div class="form-group">
                             <label> CONFIRM PASSWORD</label>
                             <ValidationProvider rules="confirmed:signup.password|min:8|required" name="Confirm Password" v-slot="{ errors }">
                             <input type="password" class="form-control" @keydown.space.prevent v-model="signup.password2">
-                            <span>{{ errors[0] }}</span>
+                            <span class="input-invalid-message">{{ errors[0] }}</span>
                             </ValidationProvider>
                         </div>
                         </div>
@@ -153,7 +204,11 @@ export default {
     data(){
         return{
             signup: {
-                username:'',
+                first_name:'',
+                middle_name:'',
+                surname:'',
+                sex:'',
+                phone: '',
                 email: '',
                 password: '',
                 password2: ''
@@ -232,6 +287,9 @@ export default {
         font-family: 'DM Sans', sans-serif  !important;
         
     }
+    .input-invalid-message{
+        color: red;
+    }
     .icons{
       text-decoration: underline;
       font-weight: bold;
@@ -303,7 +361,7 @@ export default {
             rgba(0, 4, 23, 0.58),
             rgba(0, 4, 23, 0.58)
         ),url(/img/new/ch.jpg) center center/cover;
-        height: 91.3vh;
+        height: 92.3vh;
         margin-top: -1px;
         
     }
@@ -327,6 +385,11 @@ export default {
     .nav1{
         margin-top: 1rem;
     
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 1rem;
     }
 
 
@@ -411,7 +474,7 @@ export default {
     }
     .grid{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr ;
     }
     .small{
       display:block;

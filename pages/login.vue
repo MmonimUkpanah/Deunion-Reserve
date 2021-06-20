@@ -146,7 +146,7 @@ export default {
            
         
         this.$message({
-              message: `Welcome ${user.name}`,
+              message: 'Welcome back',
               type: "success",
             });
         
