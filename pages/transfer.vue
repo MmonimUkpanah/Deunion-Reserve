@@ -1,0 +1,406 @@
+<template>
+    <div>
+        <div>
+            
+            <side-bar/>
+        </div>
+        
+        <div class="sign1">
+            <div class="sign2">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        
+                        <h1>TRANSFER</h1>
+                    </div>
+                    <div class="col-lg-6 col-md-6 sign3">
+                        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Withdrawal
+</button> <button class="log" @click="logOut()">Logout</button>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">WITHDRAWAL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        
+      </div>
+      <div class="modal-body">
+        Input authorization code or contact your account officer to proceed with withdrawal.
+        <input type="text" class="form-control in" placeholder="Withdrawal code">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Proceed</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+                    </div>
+                </div>
+                <div class="to">
+                    <form  @submit.prevent="transferMoney()">
+                        <label for="">Recipient's Account Number</label>
+                        <input type="text" class="form-control">
+                        <label for="">Amount</label>
+                        <input type="text" class="form-control">
+                        <button type="submit" class="login">Transfer</button>
+                    </form>
+                </div>
+
+                
+
+
+            
+
+
+            
+
+
+            
+            </div>
+            
+
+
+        </div>
+        
+       
+        
+    </div>
+</template>
+
+
+
+<script>
+
+export default {
+    auth: false,
+    // layout: "blog",
+    components: {
+        
+    },
+    data() {
+        return {
+            user:{},
+            account:[],
+            username:'',
+            person:{
+
+            },
+            update:{
+
+            },
+            updateauth:{
+
+            },
+            token:'',
+            
+            transfer:{
+                to_account: '',
+                amount: '',
+                user_id:'',
+                from_account:'',
+            }
+            
+        };
+    },
+    computed: {
+        
+    },
+    mounted() {
+        
+        this.getuser();
+        this.getaccount();
+        
+        this.token = localStorage.getItem('auth.jwt')
+        console.log(this.token)
+        
+    },
+    methods: {
+        transferMoney(){
+            const formData = new FormData();
+            formData.append("to_account", this.transfer.to_account);
+            formData.append("amount", this.transfer.amount)
+            
+            formData.append("user_id", this.transfer.user_id);
+            formData.append("from_account", this.transfer.from_account);
+            
+            formData.append("_method", "POST");
+            this.$axios
+        .post("https://deunionreserve.herokuapp.com/accounts/api/transferList/", formData)
+        .then((res) => {
+          this.$message({
+            message:
+              "Transfer Successful",
+            type: "success",
+          });
+          this.transfer = {};
+          console.log(res.data);
+        }).catch((error) => {
+          console.log(error);
+        });
+        
+
+        },
+       leave()
+        {
+        this.$router.push('/login');
+               
+         
+        },
+        getuser()
+        {
+         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.user=response.data;
+               this.transfer.user_id= response.data.id
+               this.username = response.data.first_name
+               console.log(this.transfer.user_id) 
+               
+         }) 
+        },
+        
+        getaccount()
+        {
+         this.$axios.get("https://deunionreserve.herokuapp.com/customers/api/customersaccountlist/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.account=response.data;
+               this.transfer.from_account = response.data[0].account_number
+            
+            
+               
+         }) 
+        },
+        
+       
+        async logOut() {
+           
+      
+      try {
+           
+           
+        this.$router.push('/login');
+        this.$message({
+              message: "You've logged out",
+              type: "success",
+            });
+        
+                        
+        
+      } catch (err) {
+           this.$message({
+            message: "There was a problem logging out. Please try again.",
+            type: "warning",
+            });
+        console.log(err)
+      }
+    }
+        
+        
+    },
+    
+};
+</script>
+<style scoped>
+     @font-face {
+    font-family: DMSans;
+    src: url("/font/DMSans-Regular.ttf");
+    }
+    *{
+        font-family: 'DM Sans', sans-serif  !important;
+        box-sizing: border-box;
+    }
+    label{
+        display: block;
+    }
+    input{
+        width: 40%;
+    }
+    .login{
+        margin-top: 1rem;
+        padding: 8px 20px;
+        color: white;
+        background: #0272A2;
+        border: none;
+        border-radius: 10px;
+    }
+    .in{
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .link:hover{
+        text-decoration: none;
+    }
+    .upgrade{
+        background: #DE911D;
+        padding: 1rem 1rem;
+        margin-top: 1rem;
+        border-radius: 10px;
+        color: white;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-column-gap: 1rem;
+    }
+    .grade{
+        text-align: right;
+    
+    }
+    .grade button{
+        background: #F0B429;
+        margin-top: 2.5rem;
+        padding: 8px 2rem;
+        border-radius: 8px;
+        border: none;
+        color:white;
+    }
+    .sign1{
+        margin-left: 20%;
+        background: #F4FAFD;
+        height: 120vh;
+        padding-top: 2rem;
+        
+        
+    }
+    .sign2{
+        margin-left: 4rem;
+        margin-right: 4rem;
+        padding-top: 2rem;
+    }
+    .sign2 h1{
+        font-size: 40px;
+        color: #0272A2;
+        font-weight: bold;
+    }
+    .sign3{
+        margin-top: 10px;
+    }
+    .sign3 button{
+        background-color: #0272A2;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 10px;
+    }
+    .log{
+        display: none;
+    }
+    .sign4{
+        margin-right: 10px;
+    }
+    .sign3 img{
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin-top: 4rem;
+    }
+    th{
+        background-color: #0272A2;
+        color: white;
+        
+        border: none;
+    }
+    .borderleft{
+        border-bottom-left-radius: 10px  !important;
+        border-top-left-radius: 10px  !important;
+    }
+    .borderright{
+        border-bottom-right-radius: 10px  !important;
+        border-top-right-radius: 10px  !important;
+    }
+    tr{
+        background: white;
+        margin-top: 5px;
+        color: #0272A2;
+    }
+    table {
+  border-collapse:separate; 
+  border-spacing: 0 0.5em;
+}
+.nav-item{
+        margin-left: 6rem;
+    }
+    a{
+        color: black !important;
+    }
+    .car{
+        margin-top: 2rem;
+        
+    }
+
+@media(max-width:576px){
+    .log{
+        background-color: red  !important;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        display: inline-block;
+        border-radius: 10px;
+        margin-left: 0.5rem;
+    }
+    .upgrade{
+        background: #DE911D;
+        padding: 2rem 1rem;
+        margin-top: 1rem;
+        border-radius: 10px;
+        color: white;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns:1fr;
+        grid-column-gap: 1rem;
+    }
+    .grade{
+        text-align: center;
+    
+    }
+    .grade button{
+        background: #F0B429;
+        margin-top: 2.5rem;
+        padding: 8px 2rem;
+        border-radius: 8px;
+        border: none;
+        color:white;
+    }
+       .sign1{
+        margin-left: 0%;
+        background: #F4FAFD;
+        height: 120vh;
+        padding-top: 2rem;
+        
+    }
+    .sign2{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .nav-item{
+        margin-left: 0rem;
+    }
+}
+
+@media (min-width:577px) and (max-width:768px){
+    .sign1{
+        margin-left: 0%;
+        background: #F4FAFD;
+        height: 100vh;
+        padding-top: 3rem;
+        
+    }
+}
+@media (min-width:769px) and (max-width: 1200px){
+    .sign1{
+        margin-left: 25%;
+        background: #F4FAFD;
+        height: 120vh;
+        padding-top: 2rem;
+        
+        
+    }
+}
+
+</style>

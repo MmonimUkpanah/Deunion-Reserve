@@ -15,6 +15,11 @@
            
             <span class="two"> Dashboard</span></router-link>
         </div>
+        <div class="grid1">
+            <router-link to="/transfer" class="dropdown-item rout link" >
+           
+            <span class="two">Transfer</span></router-link>
+        </div>
          
         
         <div class="grid1" @click="logOut">

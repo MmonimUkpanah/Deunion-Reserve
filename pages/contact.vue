@@ -59,22 +59,100 @@
             </ul>
         </div>
         <div class="con">
-            <h1>Contact</h1>
-            <p>Your questions or comments are very important to us. For enquiries regarding online banking – including security topics, phishing, PIN/TAN numbers, banking terminals, lost or stolen credit cards, loans, savings etc. – please visit the relevant section of your local Private Bank website. You can send us an email for other topics.</p>
-            <p>IMPORTANT NOTE: In order to maintain discretion, please do not email any confidential information such as account numbers. For your own security, since it is not possible to identify an email sender, Deutsche Bank cannot accept via email any orders for business transactions such as the opening of accounts, payment orders, trading orders, changes of address or the like. For such transactions, please contact the appropriate office. You can also find the address of all our locations worldwide at db.com/addresses. Send an email to deutsche.bank@db.com for other enquiries.</p>
+            <form action="" @submit.prevent="sendQuery()">
+              <label for="">Name</label>
+              <input type="text" class="form-control" required v-model="contact.name">
+              <label for="">Email</label>
+              <input type="email" name="" id="" class="form-control" required v-model="contact.email">
+              <label for="">Phone Number</label>
+              <input type="text" class="form-control" required v-model="contact.phone_number">
+              <label for="">Query</label>
+              <textarea name="" id="" class="form-control" v-model="contact.query"></textarea>
+              <button class="login">Send</button>
+            </form>
         </div>
         <footer-sections/>
     </div>
 </template>
+<script>
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css'
+export default {
+    
+    data(){
+        return{
+          contact:{
+            name:'',
+            query:'', 
+            email:'',
+            phone_number:''
+          } 
+            
+        }
+    },
+    created(){
+         
+      
+        
+    },
+    methods: {
+        
+        sendQuery(){
+            
+            this.$axios
+        .post("https://deunionreserve.herokuapp.com/customers/api/contactlist/", this.contact)
+        .then((res) => {
+          this.$message({
+            message:
+              "Query Sent",
+            type: "success",
+          });
+          
+          console.log(res.data);
+        }).catch((error) => {
+          console.log(error);
+        });
+        
+
+        },
+        
+        
+
+    }
+    
+}
+
+</script>
 <style scoped>
 @font-face {
     font-family: DMSans;
     src: url("/font/DMSans-Regular.ttf");
     }
-    
+    .login{
+      
+        margin-top: 1rem;
+        padding: 8px 20px;
+        color: white;
+        background: #0272A2;
+        border: none;
+        border-radius: 10px;
+    }
+    input{
+      width: 30%;
+      margin-bottom: 1rem;
+    }
+    textarea{
+      width: 30%;
+      height: 7rem;
+    }
+    label{
+      display: block;
+    }
     .con{
         margin-left: 5%;
         margin-right: 5%;
+        margin-top: 3rem;
     }
     .con h1{
         color: #0272A2;
@@ -132,6 +210,22 @@
      
      margin-top: 1rem;
      margin-bottom: 1rem;
+    }
+    .login{
+      width: 100%;
+        margin-top: 1rem;
+        padding: 8px 20px;
+        color: white;
+        background: #0272A2;
+        border: none;
+        border-radius: 10px;
+    }
+    input{
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    textarea{
+      width: 100%;
     }
     .ic h1{
       color: black;

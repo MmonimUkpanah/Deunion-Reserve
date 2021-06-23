@@ -73,10 +73,10 @@
                             <label for="inputAddress2">USERNAME</label>
                             <ValidationProvider
                                 v-slot="{ errors }"
-                                name="userna"
-                                rules="required">
-                            <input type="text" class="form-control" name="user"   @keydown.space.prevent
-                            placeholder="johndoe" v-model="login.username">
+                                name="email"
+                                rules="required|email">
+                            <input type="email" class="form-control" name="email"  
+                             v-model="login.email">
                             <span class="input-invalid-message">
                                 {{ errors[0] }}
                             </span>
@@ -86,7 +86,7 @@
                             <label for="inputAddress2">PASSWORD</label>
                             <ValidationProvider rules="min:8|required" v-slot="{ errors }"  name="password">
                             <input type="password" class="form-control" name="password" v-model="login.password">
-                            <span>{{ errors[0] }}</span>
+                            <span class="input-invalid-message">{{ errors[0] }}</span>
                             </ValidationProvider>
                         </div>
                 
@@ -119,7 +119,7 @@ export default {
     data(){
         return{
             login: {
-        username: '',
+        email: '',
         password: ''
       }
             
@@ -197,6 +197,9 @@ export default {
     }
     .navbar-brand{
       color: #0272A2;
+    }
+    .input-invalid-message{
+        color: red;
     }
     .navbar-brand svg{
       background-color: #0272A2  !important;
