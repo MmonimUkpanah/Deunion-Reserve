@@ -70,7 +70,7 @@
                         <div class="login-2">
                             <h2>LOGIN</h2>
                         <div class="form-group">
-                            <label for="inputAddress2">USERNAME</label>
+                            <label for="inputAddress2">EMAIL</label>
                             <ValidationProvider
                                 v-slot="{ errors }"
                                 name="email"
