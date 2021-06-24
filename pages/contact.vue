@@ -1,5 +1,11 @@
 <template>
     <div>
+      <div class="show big">
+      <ul>
+        <li><h1>Deutsche Bank</h1></li> <li>Media</li> <span class="space">|</span>  <li>Careers</li> <span class="space">|</span>  <li>Research</li>
+        <span class="space">|</span>  <li>Responsibility</li>
+      </ul>
+    </div>
         <nav class="navbar navbar-expand-lg navbar-light small fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/" > <svg id="svgsymbol-logo"  viewBox="0 0 32 32"><path d="M4.5 4.5v23h23v-23h-23zM0 0h32v32H0V0zm7 24.3L19.2 7.7H25L12.8 24.3H7z"></path></svg> Deunion Reserve </a>
@@ -129,6 +135,32 @@ export default {
     font-family: DMSans;
     src: url("/font/DMSans-Regular.ttf");
     }
+    *{
+        font-family: 'DM Sans', sans-serif  !important;
+        
+    }
+    .show{
+      padding-left: 2%;
+      padding-right: 5%;
+      margin-bottom: 3rem;
+      margin-top: 1rem;
+    }
+    .show ul li{
+      display: inline;
+      font-size: 20px;
+      
+    }
+    .show h1{
+      margin-right: 1.5rem;
+      color: #0272A2;
+      display: inline;
+    }
+    .space{
+        margin-left: 10px;
+        margin-right: 10px;
+        
+        
+    }
     .login{
       
         margin-top: 1rem;
@@ -137,6 +169,22 @@ export default {
         background: #0272A2;
         border: none;
         border-radius: 10px;
+    }
+    .show{
+      padding-left: 3%;
+      padding-right: 5%;
+      margin-bottom: 3rem;
+      margin-top: 1rem;
+    }
+    .show ul li{
+      display: inline;
+      font-size: 20px;
+      
+    }
+    .show h1{
+      margin-right: 1.5rem;
+      color: #0272A2;
+      display: inline;
     }
     input{
       width: 30%;

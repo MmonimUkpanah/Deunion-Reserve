@@ -131,7 +131,7 @@ export default {
         },
         getaccount()
         {
-         this.$axios.get("https://deunionreserve.herokuapp.com/customers/api/customersaccountlist/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+         this.$axios.get("https://deunionreserve.herokuapp.com/customers/api/customeraccountlistauth/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.account=response.data;
                this.person = this.account[1]
                console.log(this.person) 

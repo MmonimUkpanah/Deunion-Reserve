@@ -44,13 +44,16 @@
                     </div>
                 </div>
                 <div class="to">
-                    <form  @submit.prevent="transferMoney()">
+                    
                         <label for="">Recipient's Account Number</label>
                         <input type="text" class="form-control">
                         <label for="">Amount</label>
                         <input type="text" class="form-control">
-                        <button type="submit" class="login">Transfer</button>
-                    </form>
+                        <div id="myProgress" class="mt-3" v-if="dis">
+                            <div id="myBar">0%</div>
+                        </div>
+                        <button @click="move" class="login ">Transfer</button>
+                
                 </div>
 
                 
@@ -99,6 +102,7 @@ export default {
 
             },
             token:'',
+            dis:true,
             
             transfer:{
                 to_account: '',
@@ -122,29 +126,31 @@ export default {
         
     },
     methods: {
-        transferMoney(){
-            const formData = new FormData();
-            formData.append("to_account", this.transfer.to_account);
-            formData.append("amount", this.transfer.amount)
+        move(){
+            this.dis = true;
+            var i = 0;
             
-            formData.append("user_id", this.transfer.user_id);
-            formData.append("from_account", this.transfer.from_account);
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 0;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    
+                if (width >= 100) {
+                    clearInterval(id);
+                    i = 0;
+                    
+                } else {
+                    width++;
+                    elem.style.width = width + "%";
+                    elem.innerHTML = width  + "%";
+                   
+                }
+                }
+                 alert('Input authorization code or contact your account officer to proceed with transfer.')
+            }
             
-            formData.append("_method", "POST");
-            this.$axios
-        .post("https://deunionreserve.herokuapp.com/accounts/api/transferList/", formData)
-        .then((res) => {
-          this.$message({
-            message:
-              "Transfer Successful",
-            type: "success",
-          });
-          this.transfer = {};
-          console.log(res.data);
-        }).catch((error) => {
-          console.log(error);
-        });
-        
 
         },
        leave()
@@ -232,6 +238,19 @@ export default {
         width: 100%;
         margin-top: 1rem;
     }
+    #myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: #04AA6D;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
     .link:hover{
         text-decoration: none;
     }

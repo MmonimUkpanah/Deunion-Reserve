@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="show big">
+      <ul>
+        <li><h1>Deutsche Bank</h1></li> <li>Media</li> <span class="space">|</span>  <li>Careers</li> <span class="space">|</span>  <li>Research</li>
+        <span class="space">|</span>  <li>Responsibility</li>
+      </ul>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light small fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/" > <svg id="svgsymbol-logo"  viewBox="0 0 32 32"><path d="M4.5 4.5v23h23v-23h-23zM0 0h32v32H0V0zm7 24.3L19.2 7.7H25L12.8 24.3H7z"></path></svg> Deunion Reserve </a>
@@ -58,6 +64,11 @@
                 </li>
             </ul>
         </div>
+        <ul class="apt"> 
+          <li><font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /></li>
+           <li><font-awesome-icon :icon="['fas', 'link']" class="icon" /> </li>
+           <li><font-awesome-icon :icon="['fas', 'envelope']" class="icon" /></li>
+        </ul>
    <!-- <div class="one">
      <VueSlickCarousel v-bind="settings">
       <div class="two1">
@@ -145,7 +156,7 @@
       
   </b-carousel>
    </div> -->
-   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="z-index:-1">
   <div class="carousel-inner">
     <div class="carousel-item active two1">
       <div class="cap">
@@ -421,6 +432,30 @@ export default {
       width:1.7rem ;
       margin-right: 0.3rem;
     }
+    .space{
+        margin-left: 10px;
+        margin-right: 10px;
+        
+        
+    }
+    .apt{
+      position: fixed;
+      margin-left: 97%;
+      margin-top: 5rem;
+    }
+    .apt li{
+      list-style: none;
+    }
+    .apt .icon{
+      font-size: 45px;
+      color: black;
+      border-radius: 50%;
+      padding : 10px;
+      margin-bottom: 0.5rem;
+      background: white;
+      z-index: 3;
+      border: 1px solid grey;
+    }
     .slick-prev:before, .slick-next:before {
     font-family: 'slick';
     font-size: 20px;
@@ -453,6 +488,22 @@ export default {
       padding-right: 5%;;
       text-align: left;
       color: white;
+    }
+    .show{
+      padding-left: 3%;
+      padding-right: 5%;
+      margin-bottom: 3rem;
+      margin-top: 1rem;
+    }
+    .show ul li{
+      display: inline;
+      font-size: 20px;
+      
+    }
+    .show h1{
+      margin-right: 1.5rem;
+      color: #0272A2;
+      display: inline;
     }
     .cap h1{
       font-size: 70px;

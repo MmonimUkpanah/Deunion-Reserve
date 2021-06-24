@@ -27,7 +27,7 @@
     .ico{
         font-size: 40px;
         margin-right: 2rem;
-        color: blue;
+        color: #0272A2;
     }
     .f2{
         margin-left: 5%;
