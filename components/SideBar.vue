@@ -6,9 +6,9 @@
        
         </div>
         <div class="grid1">
-            <router-link to="/" class="dropdown-item rout link" >
             
-            <span class="two" style="font-weight:bold; font-size:25px">Deunion Reserve</span></router-link>
+            
+            <span class="two dropdown-item rout link" style="font-weight:bold; font-size:25px">Deunion Reserve</span>
         </div>
          <div class="grid1">
             <router-link to="/userdashboard" class="dropdown-item rout link" >

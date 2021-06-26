@@ -16,7 +16,7 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item ic">
-               <a href="/"><h1>DE</h1></a> <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
+              <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
               </li>
               <li class="nav-item grid">
                 <a class="nav-link icons" href="/">Deunion Reserve </a><span class="grid1"><font-awesome-icon :icon="['fas', 'home']" class="" /></span>
@@ -684,17 +684,20 @@ export default {
     }
     .nav-link{
       color: black  !important;
+      display: inline-block !important;
     }
     
 
 
     .grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: grid !important;
+      grid-template-columns: 2fr 1fr;
     }
     .grid1{
-      text-align: right;
+      text-align: right !important;
       margin-top: 7px;
+      display: inline-block;
+      margin-right: 0;
     }
 
 

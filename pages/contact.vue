@@ -16,7 +16,7 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item ic">
-               <a href="/"><h1>DE</h1></a> <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
+                <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
               </li>
               <li class="nav-item grid">
                 <a class="nav-link icons" href="/">Deunion Reserve </a><span class="grid1"><font-awesome-icon :icon="['fas', 'home']" class="" /></span>
@@ -114,7 +114,7 @@ export default {
               "Query Sent",
             type: "success",
           });
-          
+          this.contact = {}
           console.log(res.data);
         }).catch((error) => {
           console.log(error);
@@ -218,8 +218,8 @@ export default {
         margin-bottom: 1rem;
     }
     .grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: grid !important;
+      grid-template-columns: 2fr 1fr;
     }
     .icons{
       text-decoration: underline;

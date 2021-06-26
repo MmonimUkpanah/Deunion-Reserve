@@ -16,7 +16,9 @@
                         <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Withdrawal
-</button> <button class="log" @click="logOut()">Logout</button>
+</button> <button class="log" @click="logOut()">Logout</button><nuxt-link to="transfer"><button type="button" class="btn btn-primary ko" >
+  Transfer
+</button></nuxt-link>
 
 
 
@@ -185,6 +187,9 @@ export default {
         border-radius: 10px;
         color: white;
     }
+    .ko{
+        display: none;
+    }
     .grid{
         display: grid;
         grid-template-columns: 2fr 1fr;
@@ -285,6 +290,10 @@ export default {
         display: inline-block;
         border-radius: 10px;
         margin-left: 0.5rem;
+    }
+    .ko{
+        display: block;
+        margin-top: 0.7rem;
     }
     .upgrade{
         background: #DE911D;
