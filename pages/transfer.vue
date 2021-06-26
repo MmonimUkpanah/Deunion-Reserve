@@ -80,7 +80,8 @@
 
 
 <script>
-
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 export default {
     auth: false,
     // layout: "blog",
@@ -119,7 +120,7 @@ export default {
     mounted() {
         
         this.getuser();
-        this.getaccount();
+       
         
         this.token = localStorage.getItem('auth.jwt')
         console.log(this.token)
@@ -135,20 +136,30 @@ export default {
                 var elem = document.getElementById("myBar");
                 var width = 0;
                 var id = setInterval(frame, 10);
+                this.$message({
+            message: "Input authorization code or contact your account officer to proceed with transfer.",
+            type: "warning",
+            });
                 function frame() {
                     
-                if (width >= 100) {
+                if (width >= 60) {
                     clearInterval(id);
                     i = 0;
-                    
+                    this.$message({
+            message: "Input authorization code or contact your account officer to proceed with transfer.",
+            type: "warning",
+            });
                 } else {
                     width++;
                     elem.style.width = width + "%";
-                    elem.innerHTML = width  + "%";
-                   
+                    elem.innerHTML = width + "%" + " " + "failed";
+                   this.$message({
+            message: "Input authorization code or contact your account officer to proceed with transfer.",
+            type: "warning",
+            });
                 }
                 }
-                 alert('Input authorization code or contact your account officer to proceed with transfer.')
+                 
             }
             
 
@@ -170,16 +181,6 @@ export default {
          }) 
         },
         
-        getaccount()
-        {
-         this.$axios.get("https://deunionreserve.herokuapp.com/customers/api/customersaccountlist/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
-               this.account=response.data;
-               this.transfer.from_account = response.data[0].account_number
-            
-            
-               
-         }) 
-        },
         
        
         async logOut() {
@@ -246,7 +247,7 @@ export default {
 #myBar {
   width: 0%;
   height: 30px;
-  background-color: #04AA6D;
+  background-color: red;
   text-align: center;
   line-height: 30px;
   color: white;

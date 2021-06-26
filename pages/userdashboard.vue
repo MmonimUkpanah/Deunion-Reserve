@@ -43,11 +43,12 @@
 </div>
                     </div>
                 </div>
-                <div class="car" v-for="(ac,index) in account" :key="index">
+                <div class="car">
                     <h1>Account Information</h1>
                     <p>Account Name: {{user.surname}}, {{user.middle_name}} {{user.first_name}}</p>
-                    <p>Account Number: {{ac.account_number}}</p>
-                    <p>Available Balance: {{ac.available_bal}}</p>
+                    <p>Account Number: {{user.account_number}}</p>
+                    <p>Available Balance: {{user.available_bal}}</p>
+                    <p>Status: {{user.status}}</p>
                 
 
                 </div>
@@ -107,7 +108,7 @@ export default {
     mounted() {
         
         this.getuser();
-        this.getaccount();
+        
         
         this.token = localStorage.getItem('auth.jwt')
         console.log(this.token)
@@ -129,15 +130,7 @@ export default {
                
          }) 
         },
-        getaccount()
-        {
-         this.$axios.get("https://deunionreserve.herokuapp.com/customers/api/customeraccountlistauth/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
-               this.account=response.data;
-               this.person = this.account[1]
-               console.log(this.person) 
-               
-         }) 
-        },
+        
         
        
         async logOut() {
