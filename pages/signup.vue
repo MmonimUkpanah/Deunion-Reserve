@@ -64,8 +64,9 @@
                     
                 </div>
                 <div class="col-md-6">
+                   
                     <ValidationObserver v-slot="{ invalid }">
-                        <form @submit.prevent="signUp">
+                        <form method="post"  @submit.prevent="signUp">
                         
                         <div class="login-2">
                             <h2>REGISTRATION</h2>

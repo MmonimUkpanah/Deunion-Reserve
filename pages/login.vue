@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-6">
                     <ValidationObserver v-slot="{ invalid }">
-                    <form @submit.prevent="userLogin">
+                    <form method="post" @submit.prevent="userLogin">
                         
                         <div class="login-2">
                             <h2>LOGIN</h2>
