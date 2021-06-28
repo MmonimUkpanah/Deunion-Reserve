@@ -110,6 +110,17 @@ In Europe, we are well placed to benefit from the aforementioned resilient condi
             <p>We want communities and economies to prosper. Around the world, we apply our global corporate social responsibility strategy to the most relevant local concerns.
 We work together with like-minded partners towards this goal. Our people play their part too. We want to empower startups, non-profits and commercial businesses that create wider social good. Our Made for Good programme provides access to advice, support and networks to help them scale up. Wherever we do business we work to build stronger and more inclusive communities. We focus our efforts on the most disadvantaged through projects that deliver basic welfare, improve essential infrastructure and provide relief in emergencies.</p>
         </div>
+        <script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/607873c3067c2605c0c2cc88/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
         <footer-sections/>
     </div>
 </template>
