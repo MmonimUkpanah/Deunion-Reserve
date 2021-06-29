@@ -16,7 +16,7 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item ic">
-              <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <font-awesome-icon :icon="['fas', 'envelope']" class="icon" />
+              <font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /> <font-awesome-icon :icon="['fas', 'link']" class="icon" /> <nuxt-link to="contact"><font-awesome-icon :icon="['fas', 'envelope']" class="icon" /></nuxt-link> 
               </li>
               <li class="nav-item grid">
                 <a class="nav-link icons" href="/">Deunion Reserve </a><span class="grid1"><font-awesome-icon :icon="['fas', 'home']" class="" /></span>
@@ -67,7 +67,7 @@
         <ul class="apt"> 
           <li><font-awesome-icon :icon="['fas', 'share-alt']" class="icon" /></li>
            <li><font-awesome-icon :icon="['fas', 'link']" class="icon" /> </li>
-           <li><font-awesome-icon :icon="['fas', 'envelope']" class="icon" /></li>
+           <li><nuxt-link to="contact"><font-awesome-icon :icon="['fas', 'envelope']" class="icon" /></nuxt-link> </li>
         </ul>
    <!-- <div class="one">
      <VueSlickCarousel v-bind="settings">
@@ -329,7 +329,7 @@ var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
-s1.src='https://embed.tawk.to/607873c3067c2605c0c2cc88/default';
+s1.src='https://embed.tawk.to/60d9d6fb7f4b000ac039f38b/default';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
