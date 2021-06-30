@@ -8,7 +8,7 @@
                 <font-awesome-icon class="ico" :icon="['fab', 'linkedin']"/>
             </div>
             <div class="f2">
-                <p>Imprint <span class="space">|</span> Legal resources <span class="space">|</span> Data protection <span class="space">|</span> Accessibility <span class="space">|</span> Sitemap <span class="space">|</span> Contact </p>
+                <p>Imprint <span class="space">|</span> Legal resources <span class="space">|</span> Data protection <span class="space">|</span> Accessibility <span class="space">|</span> Sitemap <span class="space">|</span> Email: info@deunionreserve.com</p>
                 <p>Copyright &#169; 2021 Deutsche Bank, AG, Frankfurt am Main</p>
             </div>
         </footer>
