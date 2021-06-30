@@ -92,7 +92,7 @@
                 
                         <button type="submit" :disabled="invalid" class="login">LOG IN</button>
                         <div class="for">
-                            <p>Forgotten password? <a href="password"> Click here</a></p>
+                            <p>Yet to register? <a href="signup"> Click here</a></p>
                         </div>
                         
                         </div>
