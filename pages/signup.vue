@@ -170,13 +170,27 @@
                             <span class="input-invalid-message">{{ errors[0] }}</span>
                             </ValidationProvider>
                         </div>
+                        <div class="form-group">
+                            <label >PASSPORT</label>
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="name"
+                                rules="required">
+                            <input
+                                required type="file" class="file-border img-fluid" @change="uploadp()" />
+                            <span class="input-invalid-message">
+                                {{ errors[0] }}
+                            </span>
+                            </ValidationProvider>
+                        </div>
+                        <button type="submit" :disabled="invalid" class="login">SUBMIT</button>
                         </div>
                         
                        <!-- <div>
                            <p>By clicking Create Account, you agree to ForexHup's<a href="/terms"> Terms and Conditions</a></p>
                        </div> -->
                        
-                        <button type="submit" :disabled="invalid" class="login">SUBMIT</button>
+                        
                 
                         </div>
                         
@@ -223,7 +237,8 @@ export default {
                 phone: '',
                 email: '',
                 password: '',
-                password2: ''
+                password2: '',
+                passport:''
             }
             
         }
@@ -232,9 +247,25 @@ export default {
     
     },
     methods: {
+         uploadp() {
+      var input = event.target;
+      this.signup.passport = input.files[0];
+      console.log(this.signup.passport);
+    },
     async signUp() {
+         const formData = new FormData();
+            formData.append("passport", this.signup.passport);
+            formData.append("first_name", this.signup.first_name);
+            formData.append("middle_name", this.signup.middle_name);
+            formData.append("surname", this.signup.surname);
+            formData.append("sex", this.signup.sex);
+            formData.append("phone", this.signup.phone);
+            formData.append("email", this.signup.email);
+            formData.append("password", this.signup.password);
+            formData.append("password2", this.signup.password2);
+            formData.append("_method", "POST");
       try {
-        let response = await this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/register/",this.signup);
+        let response = await this.$axios.post("https://deunion-reserve.herokuapp.com/accounts/api/register/",formData);
         let user = response.data.user;
             this.$auth.$storage.setLocalStorage("user", user);
             let token = response.data.token;
@@ -360,12 +391,13 @@ export default {
     }
     .login{
         width: 100%;
-        padding: 8px 0;
         border: none;
         border-radius: 8px;
         color: white !important;
         background-color: #0272A2;
-        margin-top: 1rem;
+        height:3rem;
+        display: block;
+        margin-top: 1.8rem;
     }
     .login-3{
         background: linear-gradient(

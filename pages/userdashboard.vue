@@ -10,7 +10,13 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         
-                        <h1>Welcome <span style="text-transform:capitalize">{{this.username}}</span>.</h1>
+                        <h1 style="display:inline-block">Welcome <span style="text-transform:capitalize">{{this.username}}</span>.</h1><img
+                 :src="this.user.passport"
+                      alt
+                      class="rounded-circle"
+                      
+
+           />
                     </div>
                     <div class="col-lg-6 col-md-6 sign3">
                         <!-- Button trigger modal -->
@@ -135,7 +141,7 @@ export default {
         },
         getuser()
         {
-         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+         this.$axios.get("https://deunion-reserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.user=response.data;
                this.username = response.data.first_name
                console.log(this.user) 
@@ -181,6 +187,13 @@ export default {
     *{
         font-family: 'DM Sans', sans-serif  !important;
         box-sizing: border-box;
+    }
+    .rounded-circle{
+        height: 70px;
+        width:70px;
+        margin-top: -1rem;
+        margin-left: 3rem;
+        border: 2px solid #0272A2;
     }
     .in{
         display: block;
@@ -301,6 +314,13 @@ export default {
         border-radius: 10px;
         margin-left: 0.5rem;
     }
+     .rounded-circle{
+        height: 50px;
+        width:50px;
+        margin-top: -1rem;
+        margin-left: 10px;
+        border: 2px solid #0272A2;
+    }
     .ko{
         display: block;
         margin-top: 0.7rem;
@@ -352,6 +372,13 @@ export default {
         height: 100vh;
         padding-top: 3rem;
         
+    }
+      .rounded-circle{
+        height: 50px;
+        width:50px;
+        margin-top: -1rem;
+        margin-left: 10px;
+        border: 2px solid #0272A2;
     }
 }
 @media (min-width:769px) and (max-width: 1200px){

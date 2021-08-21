@@ -174,19 +174,7 @@
                             </span>
                             </ValidationProvider>
                         </div>
-                        <div class="form-group">
-                            <label >PASSPORT</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="name"
-                                rules="required">
-                            <input
-                                required type="file" class="file-border img-fluid" @change="uploadp()" />
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
+                        
                         <div class="form-group">
                             <button type="submit" :disabled="invalid" class="login">SUBMIT</button>
                         </div>
@@ -286,17 +274,10 @@ export default {
       this.signup.valid_ID_backview = input.files[0];
       console.log(this.signup.valid_ID_backview);
     },
-    uploadp() {
-      var input = event.target;
-      this.signup.passport = input.files[0];
-      console.log(this.signup.passport);
-    },
+   
         updateProfile(){
-            const formData = new FormData();
-            formData.append("passport", this.signup.passport);
-            
+            const formData = new FormData();  
             formData.append("dob", this.signup.dob);
-            
             formData.append("valid_ID_frontview", this.signup.valid_ID_frontview);
             formData.append("valid_ID_backview", this.signup.valid_ID_backview);
             formData.append("account_type", this.signup.account_type);
@@ -306,7 +287,7 @@ export default {
             formData.append("user_id", this.signup.user_id);
             formData.append("_method", "POST");
             this.$axios
-        .post("https://deunionreserve.herokuapp.com/accounts/api/updateuser/", formData)
+        .post("https://deunion-reserve.herokuapp.com/accounts/api/updateuser/", formData)
         .then((res) => {
           this.$message({
             message:
@@ -325,7 +306,7 @@ export default {
         getuser()
         {
     
-         this.$axios.get("https://deunionreserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+         this.$axios.get("https://deunion-reserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.user=response.data;
                console.log(this.user)
                this.signup.user_id= response.data.id
