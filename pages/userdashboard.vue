@@ -110,13 +110,15 @@ export default {
             person:{
 
             },
+            email:'',
             update:{
 
             },
             updateauth:{
 
             },
-            token:''
+            token:'',
+            history:{}
             
         };
     },
@@ -126,12 +128,13 @@ export default {
     mounted() {
         
         this.getuser();
-        
+        // this.gethistory();
         
         this.token = localStorage.getItem('auth.jwt')
         console.log(this.token)
         
     },
+    
     methods: {
        leave()
         {
@@ -143,8 +146,17 @@ export default {
         {
          this.$axios.get("https://deunion-reserve.herokuapp.com/accounts/api/user/",{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.user=response.data;
-               this.username = response.data.first_name
-               console.log(this.user) 
+               this.username = response.data.first_name 
+               this.email = response.data.email
+               console.log(this.email)
+               
+         }) 
+        },
+        gethistory()
+        {
+         this.$axios.get('https://deunion-reserve.herokuapp.com/accounts/api/history/m%40gmail.com/' ,{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+               this.history=response.data;
+               console.log(this.history) 
                
          }) 
         },
@@ -176,6 +188,10 @@ export default {
         
         
     },
+    async fetch(){
+        await this.gethistory()
+    }
+    
     
 };
 </script>
