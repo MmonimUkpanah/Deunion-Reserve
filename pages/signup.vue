@@ -276,7 +276,7 @@ export default {
             message: "Account created successfully!",
             type: "success",
             });
-            this.$router.push("/profile");
+            this.$router.push("/userdashboard");
       } catch (err) {
         console.log(err)
         this.$message({

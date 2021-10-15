@@ -10,13 +10,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         
-                        <h1 style="display:inline-block">Welcome <span style="text-transform:capitalize">{{this.username}}</span>.</h1><img
-                 :src="this.user.passport"
-                      alt
-                      class="rounded-circle"
-                      
-
-           />
+                        <h1 style="display:inline-block">Welcome <span style="text-transform:capitalize">{{this.username}}</span>.</h1>
+                        <img :src="this.user.passport" alt class="rounded-circle"/>
                     </div>
                     <div class="col-lg-6 col-md-6 sign3">
                         <!-- Button trigger modal -->
@@ -60,8 +55,37 @@
                 
 
                 </div>
-
-                
+                <div class="car">
+                    <h1>Transaction History</h1>
+                </div>
+                <div class="ta">
+          <div class="table-responsive">
+            <table class="table  table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Description</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Status</th>            
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="(tran,id) in history" :key="id">
+                                                  <td scope="row">{{tran.transaction_date}}</td>
+                                                  <td>{{tran.transaction_amount}}</td>
+                                                  <td>{{tran.transaction_description}}</td>
+                                                  <td>{{tran.transaction_type}}</td> 
+                                                  <td>{{tran.status}}</td>                                        
+                                                </tr>
+                                                
+                                                
+                                            </tbody>
+            </table>
+          </div>
+            
+        </div>
 
 
             
@@ -128,7 +152,7 @@ export default {
     mounted() {
         
         this.getuser();
-        // this.gethistory();
+        this.gethistory();
         
         this.token = localStorage.getItem('auth.jwt')
         console.log(this.token)
@@ -154,7 +178,7 @@ export default {
         },
         gethistory()
         {
-         this.$axios.get('https://deunion-reserve.herokuapp.com/accounts/api/history/m%40gmail.com/' ,{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
+         this.$axios.get('https://deunion-reserve.herokuapp.com/accounts/api/historylist/' ,{headers:{'Authorization':`token ${localStorage.getItem('auth.jwt')}`}}).then((response)=> {
                this.history=response.data;
                console.log(this.history) 
                
@@ -214,6 +238,10 @@ export default {
     .in{
         display: block;
         width: 100%;
+        margin-top: 1rem;
+    }
+    .ta{
+        
         margin-top: 1rem;
     }
     .link:hover{
