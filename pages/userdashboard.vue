@@ -1,19 +1,31 @@
 <template>
     <div>
+        <div class="di">
+            <div class="di1">
+                <h3>Deunion Reserve</h3>
+            </div>
+            <div class="di2">
+                <img :src="this.user.passport" alt class="rounded-circle"/>
+            </div>
+        </div>
         <div>
             
             <side-bar/>
         </div>
+
+        
         
         <div class="sign1">
             <div class="sign2">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        
-                        <h1 style="display:inline-block">Welcome <span style="text-transform:capitalize">{{this.username}}</span>.</h1>
-                        <img :src="this.user.passport" alt class="rounded-circle"/>
+                <div class="gi">
+                    <div class="gi1">
+                        <img src="/img/new/ru.jpg" alt="">
                     </div>
-                    <div class="col-lg-6 col-md-6 sign3">
+                    <div class="gi2">
+                        <h3>Account Information</h3>
+                        <p>Account Name: {{user.surname}}, {{user.middle_name}} {{user.first_name}}</p>
+                        <p>Account Number: {{user.account_number}}</p>
+                        <div class="sign3">
                         <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Withdrawal
@@ -45,16 +57,14 @@
   </div>
 </div>
                     </div>
+                    </div>
+                    <div class="gi3">
+                        <h3>Available Funds</h3>
+                        <p>Balance: {{user.available_bal}}</p>
+                    </div>
                 </div>
-                <div class="car">
-                    <h1>Account Information</h1>
-                    <p>Account Name: {{user.surname}}, {{user.middle_name}} {{user.first_name}}</p>
-                    <p>Account Number: {{user.account_number}}</p>
-                    <p>Available Balance: {{user.available_bal}}</p>
-                    <p>Status: {{user.status}}</p>
+               
                 
-
-                </div>
                 <div class="car">
                     <h1>Transaction History</h1>
                 </div>
@@ -63,21 +73,27 @@
             <table class="table  table-striped table-hover">
                                             <thead>
                                                 <tr>
-                                                
-                                                <th scope="col">Date</th>
+                                                <th scope="col">Transaction</th>
+                                                <th scope="col">Details</th>
                                                 <th scope="col">Amount</th>
-                                                <th scope="col">Description</th>
-                                                <th scope="col">Type</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Transaction ID</th>
+                                                
+                                                
+                                                
                                                 <th scope="col">Status</th>            
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="(tran,id) in history" :key="id">
-                                                  <td scope="row">{{tran.transaction_date}}</td>
+                                                <tr v-for="(tran,id) in history" :key="id" > 
+                                                  <td scope="row">{{tran.transaction_description}}</td>
+                                                  <td>{{tran.transaction_type}}</td>
                                                   <td>{{tran.transaction_amount}}</td>
-                                                  <td>{{tran.transaction_description}}</td>
-                                                  <td>{{tran.transaction_type}}</td> 
-                                                  <td>{{tran.status}}</td>                                        
+                                                  <td >{{tran.transaction_date}}</td>
+                                                  <td >{{tran.transaction_id}}</td>
+                                                  
+                                                   
+                                                  <td :class="[{'positive':tran.status = 'Successful'}]">{{tran.status}}</td>                                        
                                                 </tr>
                                                 
                                                 
@@ -228,11 +244,56 @@ export default {
         font-family: 'DM Sans', sans-serif  !important;
         box-sizing: border-box;
     }
+     .positive{
+        background:green;
+        color:white;
+    }
+    .negative{
+        background: red;
+        color:white;
+    }
+    .di{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        position: fixed;
+        width: 100%;
+        background-color: white;
+    }
+    .di1 h3{
+        font-weight: bold;
+        font-size: 35px;
+        color: #334D6E;
+        margin-left: 1.5rem;
+    }
+    .di2{
+        text-align: right;
+        margin-right: 1.5rem;
+    }
+    .gi{
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        grid-column-gap: 2rem;
+    }
+    .gi h3{
+        color: #0272A2;
+    }
+    .gi p{
+        color: #334D6E;
+    }
+    .gi2{
+        padding-top: 1rem;
+    }
+    .gi3{
+        padding-top: 1rem;
+    }
+    .gi1 img{
+        width: 100%;
+    }
     .rounded-circle{
-        height: 70px;
-        width:70px;
-        margin-top: -1rem;
-        margin-left: 3rem;
+        height: 50px;
+        width:50px;
         border: 2px solid #0272A2;
     }
     .in{
@@ -278,7 +339,7 @@ export default {
         margin-left: 20%;
         background: #F4FAFD;
         height: 120vh;
-        padding-top: 2rem;
+        padding-top: 4rem;
         
         
     }
@@ -288,7 +349,7 @@ export default {
         padding-top: 2rem;
     }
     .sign2 h1{
-        font-size: 40px;
+        font-size: 30px;
         color: #0272A2;
         font-weight: bold;
     }
@@ -349,6 +410,24 @@ export default {
     }
 
 @media(max-width:576px){
+    .gi{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-column-gap: 2rem;
+    }
+    .di{
+        grid-template-columns: 1fr ;
+        text-align: center;
+    }
+    .di1 h3{
+        font-weight: bold;
+        font-size: 30px;
+        color: #334D6E;
+        margin-left: 0rem;
+    }
+    .di2{
+        display: none;
+    }
     .log{
         background-color: red  !important;
         color: white;
@@ -361,8 +440,6 @@ export default {
      .rounded-circle{
         height: 50px;
         width:50px;
-        margin-top: -1rem;
-        margin-left: 10px;
         border: 2px solid #0272A2;
     }
     .ko{
@@ -396,8 +473,8 @@ export default {
        .sign1{
         margin-left: 0%;
         background: #F4FAFD;
-        height: 120vh;
-        padding-top: 2rem;
+        height: auto;
+        padding-top: 3rem;
         
     }
     .sign2{
@@ -420,19 +497,43 @@ export default {
       .rounded-circle{
         height: 50px;
         width:50px;
-        margin-top: -1rem;
+        margin-top: 0rem;
         margin-left: 10px;
         border: 2px solid #0272A2;
+    }
+    .gi{
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        grid-column-gap: 2rem;
+    }
+    .sign2{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .gi2{
+        padding-top: 0rem;
+    }
+    .gi3{
+        padding-top: 0rem;
     }
 }
 @media (min-width:769px) and (max-width: 1200px){
     .sign1{
-        margin-left: 25%;
+        margin-left: 20%;
         background: #F4FAFD;
         height: 120vh;
-        padding-top: 2rem;
-        
-        
+        padding-top:3rem;
+    }
+     .gi{
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        grid-column-gap: 2rem;
+    }
+    .gi2{
+        padding-top: 0rem;
+    }
+    .gi3{
+        padding-top: 0rem;
     }
 }
 

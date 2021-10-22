@@ -5,16 +5,12 @@
             
        
         </div>
-        <div class="grid1">
+        <!-- <div class="grid1">
             
             
             <span class="two dropdown-item rout link" style="font-weight:bold; font-size:25px">Deunion Reserve</span>
-        </div>
-         <div class="grid1">
-            <router-link to="/userdashboard" class="dropdown-item rout link" >
-           
-            <span class="two"> Dashboard</span></router-link>
-        </div>
+        </div> -->
+         
         <div class="grid1">
             <router-link to="/transfer" class="dropdown-item rout link" >
            
@@ -25,7 +21,7 @@
         <div class="grid1" @click="logOut">
             <div class="dropdown-item rout link">
                
-            <span class="two" style="color:red"> Log Out</span>
+            <span class="two"> Log Out</span>
             </div>
             
         </div>
@@ -111,6 +107,7 @@ export default {
     width: 20%;
     height: 100vh;
     position: fixed;
+    margin-top: 4rem;
     top: 0;
     left: 0;
     background: #FFFFFF;

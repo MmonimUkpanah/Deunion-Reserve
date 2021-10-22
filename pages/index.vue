@@ -195,28 +195,28 @@
      <div class="three1">
        <img src="/img/new/stefan.jpg" alt="">
        <div class="three2">
-         <p>News | April 30, 2021</p>
+         <p>News | November 30, 2021</p>
          <h5>Virtual AGM 2.0: Deunion Reserve is at the forefront</h5>
        </div>
      </div>
      <div class="three1">
        <img src="/img/new/chris.jpg" alt="">
       <div class="three2">
-         <p>News | April 28, 2021</p>
+         <p>News | November 28, 2021</p>
          <h5>A message from Christian Sewing on Q1 results 2021</h5>
        </div>
      </div>
      <div class="three1">
        <img src="/img/new/ann.jpg" alt="">
       <div class="three2">
-         <p>Media Release | April 30, 2021</p>
+         <p>Media Release | November 30, 2021</p>
          <h5>Deunion Reserve reports &#65505;1.6 billion profit before tax in the first quarter of 2021 </h5>
        </div>
      </div>
      <div class="three1">
        <img src="/img/new/wind.jpg" alt="">
       <div class="three2">
-         <p>Media Release | April 30, 2021</p>
+         <p>Media Release | November 30, 2021</p>
          <h5>Providing sustainable trade financing to Vestas for wind turbines in Australia </h5>
        </div>
      </div>
@@ -262,7 +262,7 @@
      <div class="three1">
        <img src="/img/new/cb.jpg" alt="">
        <div class="three2">
-         <p>Flow Article | April 30, 2021</p>
+         <p>Flow Article | November 30, 2021</p>
          <h5>Recharging personal transportation</h5>
          <p>More than a decade after Tesla launched the first mass-produced electric vehicle, the end of the road is approaching
            for the conventional internal combustion engine. Flow's Graham Buck and Janet Du CHenne report on how an all-electric future
@@ -273,7 +273,7 @@
      <div class="three1">
        <img src="/img/new/more.jpg" alt="">
       <div class="three2">
-         <p>Flow article | April 28, 2021</p>
+         <p>Flow article | November 28, 2021</p>
          <h5>Doing more with less</h5>
         <p>More than a year on since the onset of Covid-19, the pandemic has made centralisation a top priority for many corporate treasurers and strengthened the case 
           for using an in-house bank, reports flow's Graham Buck.
@@ -283,7 +283,7 @@
      <div class="three1">
        <img src="/img/new/co.jpg" alt="">
       <div class="three2">
-         <p>Flow article | April 30, 2021</p>
+         <p>Flow article | November 30, 2021</p>
          <h5>Covid-19: Towards herd immunity? </h5>
         <p>Production shortfalls, political wrangling, safety concerns and vaccine hesitancy have created barriers on the road to normalcy, but overall roll-out of injections is nonetheless advancing steadily, reports flow's Graham Buck and Clarissa Dann.</p>
        </div>
@@ -291,7 +291,7 @@
      <div class="three1">
        <img src="/img/new/and.jpg" alt="">
       <div class="three2">
-         <p>Flow Article | April 30, 2021</p>
+         <p>Flow Article | November 30, 2021</p>
          <h5>Sustainability and supply chains </h5>
         <p>While ESG principles and alignment start at home, they mst carry through to supply chains, explains Deunion Reserve's Anil Walia and Bjoern Goedecke in BCR's World Supply Chain Finance Report 2021.</p>
        </div>
