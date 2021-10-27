@@ -2,7 +2,7 @@
     <div>
         <div class="di">
             <div class="di1">
-                <h3>Deunion Reserve</h3>
+                <nuxt-link to="userdashboard" class="nuxt-link"><h3>Deunion Reserve</h3></nuxt-link>
             </div>
             <div class="di2">
                 <img :src="this.user.passport" alt class="rounded-circle"/>
@@ -93,7 +93,7 @@
                                                   <td >{{tran.transaction_id}}</td>
                                                   
                                                    
-                                                  <td :class="[{'positive':tran.status = 'Successful'}]">{{tran.status}}</td>                                        
+                                                  <td :class="[{'positive':tran.status == 'Successful'},{'pending':tran.status == 'Pending'},{'negative':tran.status == 'Declined'}]">{{tran.status}}</td>                                        
                                                 </tr>
                                                 
                                                 
@@ -244,6 +244,9 @@ export default {
         font-family: 'DM Sans', sans-serif  !important;
         box-sizing: border-box;
     }
+    .nuxt-link{
+    text-decoration: none;
+    }
      .positive{
         background:green;
         color:white;
@@ -251,6 +254,10 @@ export default {
     .negative{
         background: red;
         color:white;
+    }
+    .pending{
+        background: blue;
+        color: white;
     }
     .di{
         display: grid;

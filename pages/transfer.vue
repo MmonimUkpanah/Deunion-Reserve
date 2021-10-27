@@ -1,5 +1,14 @@
 <template>
     <div>
+        <div class="di">
+            <div class="di1">
+                <nuxt-link to="userdashboard" class="nuxt-link"><h3>Deunion Reserve</h3></nuxt-link>
+                
+            </div>
+            <div class="di2">
+                <img :src="this.user.passport" alt class="rounded-circle"/>
+            </div>
+        </div>
         <div>
             
             <side-bar/>
@@ -230,6 +239,25 @@ export default {
         font-family: 'DM Sans', sans-serif  !important;
         box-sizing: border-box;
     }
+    .di{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        position: fixed;
+        width: 100%;
+        background-color: white;
+    }
+    .di1 h3{
+        font-weight: bold;
+        font-size: 35px;
+        color: #334D6E;
+        margin-left: 1.5rem;
+    }
+    .di2{
+        text-align: right;
+        margin-right: 1.5rem;
+    }
     label{
         display: block;
     }
@@ -252,6 +280,9 @@ export default {
     #myProgress {
   width: 100%;
   background-color: #ddd;
+}
+.nuxt-link{
+    text-decoration: none;
 }
 
 #myBar {
@@ -300,7 +331,7 @@ export default {
     .sign2{
         margin-left: 4rem;
         margin-right: 4rem;
-        padding-top: 2rem;
+        padding-top: 3rem;
     }
     .sign2 h1{
         font-size: 40px;
@@ -373,6 +404,22 @@ export default {
         border-radius: 10px;
         margin-left: 0.5rem;
     }
+    .to{
+        margin-top: 1rem;
+    }
+    .di{
+        grid-template-columns: 1fr ;
+        text-align: center;
+    }
+    .di1 h3{
+        font-weight: bold;
+        font-size: 30px;
+        color: #334D6E;
+        margin-left: 0rem;
+    }
+    .di2{
+        display: none;
+    }
     .upgrade{
         background: #DE911D;
         padding: 2rem 1rem;
@@ -410,6 +457,9 @@ export default {
     }
     .nav-item{
         margin-left: 0rem;
+    }
+    input{
+        width: 100%;
     }
 }
 
