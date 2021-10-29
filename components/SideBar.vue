@@ -10,7 +10,13 @@
             
             <span class="two dropdown-item rout link" style="font-weight:bold; font-size:25px">Deunion Reserve</span>
         </div> -->
-         
+         <div class="grid1">
+            <router-link to="/userdashboard" class="dropdown-item rout link" >
+           
+            <span class="two">Dashboard</span></router-link>
+        </div>
+
+
         <div class="grid1">
             <router-link to="/transfer" class="dropdown-item rout link" >
            
@@ -198,6 +204,22 @@ p.hover{
 @media (min-width: 577px) and (max-width: 768px){
     .one{
    display: none;
+    
+
+}
+}
+@media (min-width: 769px) and (max-width: 1200px){
+    .one{
+    width: 25%;
+    height: 100vh;
+    position: fixed;
+    margin-top: 4rem;
+    top: 0;
+    left: 0;
+    background: #FFFFFF;
+    box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+    padding-top: 0rem;
+    z-index: 1;
     
 
 }

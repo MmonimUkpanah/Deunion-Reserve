@@ -21,11 +21,11 @@
                         
                         <h1>TRANSFER</h1>
                     </div>
-                    <div class="col-lg-6 col-md-6 sign3">
+                    <div class="col-lg-3 col-md-3 sign3">
                         <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Withdrawal
-</button> <button class="log" @click="logOut()">Logout</button>
+</button> <button class="log" @click="logOut()">Logout</button> 
 
 
 
@@ -50,6 +50,9 @@
     </div>
   </div>
 </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <button class="newbutton"><a href="/userdashboard">Dashboard</a> </button>
                     </div>
                 </div>
                 <div class="to">
@@ -239,6 +242,13 @@ export default {
         font-family: 'DM Sans', sans-serif  !important;
         box-sizing: border-box;
     }
+    .newbutton{
+        display: none;
+        
+    }
+    .newbutton a{
+        color: white !important;
+    }
     .di{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -395,6 +405,15 @@ export default {
     }
 
 @media(max-width:576px){
+    .newbutton{
+        display: block;
+        margin-top: 10px;
+        background-color: #0272A2;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 10px;
+    }
     .log{
         background-color: red  !important;
         color: white;
@@ -464,12 +483,22 @@ export default {
 }
 
 @media (min-width:577px) and (max-width:768px){
+    
     .sign1{
         margin-left: 0%;
         background: #F4FAFD;
         height: 100vh;
         padding-top: 3rem;
         
+    }
+    .newbutton{
+        display: block;
+        margin-top: 10px;
+        background-color: #0272A2;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 10px;
     }
 }
 @media (min-width:769px) and (max-width: 1200px){
